@@ -8,7 +8,7 @@ type NavbarLinkProps = {
 
 function NavbarLink(props: NavbarLinkProps) {
     return (
-        <li className="nav-item"> <a className="nav-link" href={props.link}>{props.children}</a></li>
+         <a className="nav-link" href={props.link}>{props.children}</a>
     );
 }
 

@@ -1,27 +1,26 @@
 import React, { ReactNode } from "react";
 
 type IconProps = {
-    xmlns: string,
     width: string,
     height: string,
-    fill: string,
     className: string,
-    viewBox: string,
-    path: ReactNode,
+    children: ReactNode,
 }
 
 function Icon(props: IconProps) {
     return (
+        <span className="m-3">
             <svg 
-                xmlns={props.xmlns}
+                xmlns="http://www.w3.org/2000/svg"
                 width={props.width}
                 height={props.height} 
-                fill={props.fill}
+                fill="currentColor"
                 className={props.className} 
-                viewBox={props.viewBox}
+                viewBox="0 0 16 16"
             >
-                {props.path}
+                {props.children}
             </svg>
+        </span>
     );
 }
 
