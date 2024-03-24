@@ -9,7 +9,7 @@ type CardProps = {
 function Card(props: CardProps){
     function changeBackGround(){
         
-        if(cardbackground == "bg-white"){
+        if(cardbackground === "bg-white"){
             setcardbackground("bg-secondary")
         }
         else{

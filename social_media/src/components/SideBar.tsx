@@ -7,7 +7,7 @@ type SideBarProps = {
 function SideBar(props: SideBarProps){
     return (
     <div className="container-fluid">
-        <div className="row">
+        <div className="row justify-content-start">
             <div className="col-sm-auto bg-light sticky-top">
                 <div className="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
                     <a href={props.home_url} className="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
