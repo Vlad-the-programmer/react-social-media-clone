@@ -1,16 +1,17 @@
+import React from "react";
 
-enum sizeEnum{
-    one,
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
-    eleven,
-    twelve,
+enum sizeEnum {
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve,
 }
-export default sizeEnum
+export default sizeEnum;
