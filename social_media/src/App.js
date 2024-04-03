@@ -24,39 +24,37 @@ function App() {
           </Column>
 
           <Column smallSize={sizeEnum.nine}>
-            <Row>
-              <Column smallSize={sizeEnum.four}>
-                <Card
-                  buttonLink="#"
-                  buttonText="button"
-                  imageLink="https://picsum.photos/300/200"
-                  title="Card"
-                ></Card>
-              </Column>
-              <Column smallSize={sizeEnum.four}>
-                <Card
-                  buttonLink="#"
-                  buttonText="button"
-                  imageLink="https://picsum.photos/300/200"
-                  title="Card"
-                ></Card>
-              </Column>
-              <Column smallSize={sizeEnum.four}>
-                <Card
-                  buttonLink="#"
-                  buttonText="button"
-                  imageLink="https://picsum.photos/300/200"
-                  title="Card"
-                ></Card>
-              </Column>
-            </Row>
+            <Column smallSize={sizeEnum.five}>
+              <Card
+                buttonLink="#"
+                buttonText="button"
+                imageLink="https://picsum.photos/300/200"
+                title="Card"
+              ></Card>
+            </Column>
+            <Column smallSize={sizeEnum.five}>
+              <Card
+                buttonLink="#"
+                buttonText="button"
+                imageLink="https://picsum.photos/300/200"
+                title="Card"
+              ></Card>
+            </Column>
+            <Column smallSize={sizeEnum.five}>
+              <Card
+                buttonLink="#"
+                buttonText="button"
+                imageLink="https://picsum.photos/300/200"
+                title="Card"
+              ></Card>
+            </Column>
           </Column>
         </Row>
       </Container>
       <script
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossOrigin="anonymous"
+        crossorigin="anonymous"
       ></script>
     </div>
   );

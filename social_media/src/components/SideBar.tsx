@@ -7,119 +7,62 @@ type SideBarProps = {
 
 function SideBar(props: SideBarProps) {
   return (
-    <Container>
-      <div className="row justify-content-start">
-        <div className="col-sm-auto bg-light sticky-top">
-          <div className="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
-            <a
-              href={props.home_url}
-              className="d-block p-3 link-dark text-decoration-none"
-              title=""
-              data-bs-toggle="tooltip"
-              data-bs-placement="right"
-              data-bs-original-title="Icon-only"
-            >
-              <i className="bi-bootstrap fs-1"></i>
-            </a>
-            <ul className="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
-              <li className="nav-item">
-                <a
-                  href={props.home_url}
-                  className="nav-link py-3 px-2"
-                  title=""
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  data-bs-original-title="Home"
-                >
-                  <i className="bi-house fs-1"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="nav-link py-3 px-2"
-                  title=""
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  data-bs-original-title="Dashboard"
-                >
-                  <i className="bi-speedometer2 fs-1"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="nav-link py-3 px-2"
-                  title=""
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  data-bs-original-title="Orders"
-                >
-                  <i className="bi-table fs-1"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="nav-link py-3 px-2"
-                  title=""
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  data-bs-original-title="Posts"
-                >
-                  <i className="bi-heart fs-1"></i>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="nav-link py-3 px-2"
-                  title=""
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  data-bs-original-title="Customers"
-                >
-                  <i className="bi-people fs-1"></i>
-                </a>
-              </li>
-            </ul>
-            <div className="dropdown">
-              <a
-                href="#"
-                className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                id="dropdownUser3"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="bi-person-circle h2"></i>
+    <div className="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark sidebar-height"> 
+      <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> 
+        <svg className="bi me-2" width="40" height="32"> </svg> 
+        <span className="fs-4">CPRS Admin</span> 
+      </a>
+      <hr />
+        <ul className="nav nav-pills flex-column mb-auto">
+          <li className="nav-item"> 
+            <a href="#" className="nav-link active" aria-current="page"> 
+              <i className="fa fa-home"></i>
+              <span className="ms-2">Home</span> 
+            </a> 
+          </li>
+          <li> 
+            <a href="/" className="nav-link text-white"> 
+              <i className="fa fa-dashboard"></i>
+              <span className="ms-2">Dashboard</span> 
+            </a> 
+          </li>
+          <li>
+            <a href="/" className="nav-link text-white"> 
+              <i className="fa fa-first-order"></i>
+              <span className="ms-2">Students</span> 
+            </a> 
+          </li>
+          <li>
+             <a href="#" className="nav-link text-white"> 
+              <i className="fa fa-cog"></i>
+              <span className="ms-2">Settings</span> 
+            </a> 
+          </li>
+          <li> 
+            <a href="#" className="nav-link text-white"> 
+              <i className="fa fa-bookmark"></i>
+              <span className="ms-2">Bookmarks</span> 
+            </a> 
+          </li>
+        </ul>
+        <hr />
+          <div className="dropdown"> 
+            <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 
+              <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" /> 
+              <strong> John W </strong> 
               </a>
-              <ul
-                className="dropdown-menu text-small shadow"
-                aria-labelledby="dropdownUser3"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    New project...
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Profile
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+              <li><a className="dropdown-item" href="#">New project</a></li>
+              <li><a className="dropdown-item" href="#">Settings</a></li>
+              <li><a className="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li><a className="dropdown-item" href="#">Sign out</a></li>
+            </ul>
           </div>
-        </div>
-        <div className="col-sm p-3 min-vh-100"></div>
       </div>
-    </Container>
-  );
+    );
 }
 
 export default SideBar;
