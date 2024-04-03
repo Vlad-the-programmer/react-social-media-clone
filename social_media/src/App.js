@@ -19,11 +19,14 @@ function App() {
 
       <Container>
         <Row>
-          <Column smallSize={sizeEnum.three}>
+          <Column smallSize={sizeEnum.four} classNames={["g-0 px-2"]}>
             <SideBar />
           </Column>
 
-          <Column smallSize={sizeEnum.nine}>
+          <Column
+            smallSize={sizeEnum.eight}
+            classNames={["align-items-center gy-4"]}
+          >
             <Column smallSize={sizeEnum.five}>
               <Card
                 buttonLink="#"

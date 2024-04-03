@@ -1,14 +1,13 @@
 import React, { ReactNode } from "react";
 import sizeEnum from "./sizeEnum";
 
-
 type ColumnProps = {
   smallSize: sizeEnum;
   mediumSize: sizeEnum;
   largeSize: sizeEnum;
   children: ReactNode;
+  classNames: Array<string>;
 };
-
 
 function translateSizeToSmallClass(size: sizeEnum) {
   switch (size) {
@@ -72,7 +71,6 @@ function translateSizeToMediumClass(size: sizeEnum) {
   }
 }
 
-
 function translateSizeToLargeClass(size: sizeEnum) {
   switch (size) {
     case sizeEnum.one:
@@ -104,14 +102,24 @@ function translateSizeToLargeClass(size: sizeEnum) {
   }
 }
 
+function getClassesNamesString(classNamesArr: string[] = []) {
+  console.log(classNamesArr.join(" "));
+  return classNamesArr.join(" ");
+}
 
 function Column(props: ColumnProps) {
   return (
-    <div className={translateSizeToSmallClass(props.smallSize) + " px-3 g-3"}>
+    <div
+      className={
+        translateSizeToSmallClass(props.smallSize) +
+        " " +
+        getClassesNamesString(props.classNames) +
+        " px-3 gy-3"
+      }
+    >
       {props.children}
     </div>
   );
 }
-
 
 export default Column;

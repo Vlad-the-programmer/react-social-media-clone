@@ -5,7 +5,7 @@ type ContainerProps = {
 };
 
 function Container(props: ContainerProps) {
-  return <div className="container-fluid">{props.children}</div>;
+  return <div className="container g-0">{props.children}</div>;
 }
 
 export default Container;
