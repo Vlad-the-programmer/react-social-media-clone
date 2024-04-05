@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 type NavbarLinkProps = {
   text: string;
@@ -11,6 +12,7 @@ function NavbarLink(props: NavbarLinkProps) {
     <a className="nav-link" href={props.link}>
       {props.children}
     </a>
+    // <Link to={props.link}>{props.children}</Link>
   );
 }
 
