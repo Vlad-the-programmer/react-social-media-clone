@@ -1,7 +1,6 @@
 import Icon from "./Icon.tsx";
 import NavbarLink from "./NavbarLink.tsx";
 import Avatar from "./Avatar.tsx";
-import RouterLink from "./RouterLink.tsx";
 
 function Navbar() {
   return (

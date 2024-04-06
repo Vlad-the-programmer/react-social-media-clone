@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { SIGN_UP } from "../constants/routes";
-import { Link, useHistory, BrowserRouter as Router } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { data } from "./SignUp";
 import { userExists, checkPassword } from "../utils.py/signUp";
 

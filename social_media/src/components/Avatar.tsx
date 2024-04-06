@@ -1,4 +1,5 @@
 import React from "react";
+import DropDown from "./DropDown";
 
 type AvatarProps = {
   avatarLink: string;
@@ -9,40 +10,56 @@ type AvatarProps = {
 
 function Avatar(props: AvatarProps) {
   return (
-    <a
-      data-mdb-dropdown-init
-      className="dropdown-toggle d-flex align-items-center hidden-arrow"
-      href={props.avatarLink}
-      id="navbarDropdownMenuAvatar"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      <img
-        src={props.imgLink}
-        className="rounded-circle"
-        height={props.imgHeight}
-        alt={props.altText}
-        loading="lazy"
-      />
-      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li>
-          <a className="dropdown-item" href="#">
-            Action
+    <div className="collapse navbar-collapse px-3" id="navbarResponsive">
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item dropdown">
+          <a
+            className="dropdown-toggle d-flex align-items-center hidden-arrow"
+            data-mdb-dropdown-init
+            href={props.avatarLink}
+            id="navbarDropdownMenuAvatar"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src={props.imgLink}
+              className="rounded-circle"
+              height={props.imgHeight}
+              alt={props.altText}
+              loading="lazy"
+            />
           </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Something else here
-          </a>
+          <DropDown dropItemNames={["Profile", "User"]} links={["/", "/"]} />
         </li>
       </ul>
-    </a>
+    </div>
+
+    // <div className="dropdown show">
+    //   <a
+    //     className="btn btn-secondary dropdown-toggle"
+    //     href="#"
+    //     role="button"
+    //     id="dropdownMenuLink"
+    //     data-bs-toggle="dropdown"
+    //     aria-haspopup="true"
+    //     aria-expanded="false"
+    //   >
+    //     Dropdown link
+    //   </a>
+
+    //   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    //     <a className="dropdown-item" href="#">
+    //       Action
+    //     </a>
+    //     <a className="dropdown-item" href="#">
+    //       Another action
+    //     </a>
+    //     <a className="dropdown-item" href="#">
+    //       Something else here
+    //     </a>
+    //   </div>
+    // </div>
   );
 }
 
