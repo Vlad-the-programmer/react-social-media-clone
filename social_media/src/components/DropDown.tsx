@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import DropDownItem from "./DropItem";
 
 type DropDownProps = {
   links: Array<string>;
   dropItemNames: Array<string>;
+  children: ReactNode;
 };
 
 const getDropDownItems = (
@@ -21,15 +22,19 @@ function DropDown(props: DropDownProps) {
   return (
     <div className="dropdown">
       <button
-        className="btn btn-primary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
+        // href="#"
+        className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+        id="dropdownUser1"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Dropdown
+        {props.children}
       </button>
-      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+      <ul
+        className="dropdown-menu dropdown-menu-dark text-small shadow"
+        aria-labelledby="dropdownUser1"
+      >
         getDropDownItems(props.dropItemNames, props.links)
       </ul>
     </div>
