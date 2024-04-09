@@ -1,6 +1,8 @@
 import React from "react";
 import Icon from "./Icon";
 import DropDown from "./DropDown";
+import Avatar from "./Avatar";
+import DropDownItem from "./DropDownItem";
 
 type SideBarProps = {
   home_url: string;
@@ -23,20 +25,32 @@ function SideBar(props: SideBarProps) {
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <a href="#" className="nav-link active" aria-current="page">
-            <i className="fa fa-home"></i>
-            <span className="ms-2">Home</span>
+            <Icon width="16" height="16" className="bi bi-person-circle">
+
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            </Icon>
+
+            <span className="ms-2">Vladyslav Klymchuk</span>
           </a>
         </li>
         <li>
           <a href="/" className="nav-link text-white">
-            <i className="fa fa-dashboard"></i>
-            <span className="ms-2">Dashboard</span>
+            <Icon
+              width="16"
+              height="16"
+              className="bi bi-people-fill">
+
+              <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+
+            </Icon>
+            <span className="ms-2">Groups</span>
           </a>
         </li>
         <li>
           <a href="/" className="nav-link text-white">
             <i className="fa fa-first-order"></i>
-            <span className="ms-2">Students</span>
+            <span className="ms-2">Friends</span>
           </a>
         </li>
         <li>
@@ -53,7 +67,7 @@ function SideBar(props: SideBarProps) {
         </li>
       </ul>
       <hr />
-      <DropDown dropItemNames={[]} links={[]}>
+      {/* <DropDown dropItemNames={[]} links={[]}>
         <img
           src="https://github.com/mdo.png"
           alt=""
@@ -62,7 +76,7 @@ function SideBar(props: SideBarProps) {
           className="rounded-circle me-2"
         />
         <strong> John W </strong>
-      </DropDown>
+      </DropDown> */}
     </div>
   );
 }

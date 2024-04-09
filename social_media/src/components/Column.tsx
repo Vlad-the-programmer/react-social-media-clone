@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import sizeEnum from "./SizeEnum";
+import sizeEnum from "./SizeEnum"
 
 type ColumnProps = {
   smallSize: sizeEnum;

@@ -2,6 +2,9 @@ import Icon from "./Icon.tsx";
 import NavbarLink from "./NavbarLink.tsx";
 import Avatar from "./Avatar.tsx";
 import { Outlet } from "react-router-dom";
+import { LOGIN, SIGN_UP } from "../constants/routes.js";
+import DropDownItem from "./DropDownItem.tsx"
+
 
 function Navbar() {
   return (
@@ -58,12 +61,16 @@ function Navbar() {
               imgLink="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
               avatarLink="/"
               imgHeight="25"
+              imgWidth="25"
               altText="Black and White Portrait of a Man"
-            />
+            >
+              <DropDownItem link="/" dropItemName="Profile" />
+              <DropDownItem link="/" dropItemName="Signout" />
+            </Avatar>
 
-            <NavbarLink link="/login">Login</NavbarLink>
+            <NavbarLink link={LOGIN}>Login</NavbarLink>
 
-            <NavbarLink link="/signup">Signup</NavbarLink>
+            <NavbarLink link={SIGN_UP}>Signup</NavbarLink>
           </div>
         </div>
       </nav>

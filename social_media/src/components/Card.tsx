@@ -1,4 +1,6 @@
 import React, { ReactNode, useState } from "react";
+
+
 type CardProps = {
     children: ReactNode,
     buttonLink: string,
@@ -6,6 +8,8 @@ type CardProps = {
     buttonText: string,
     title: string,
 }
+
+
 function Card(props: CardProps){
     function changeBackGround(){
         

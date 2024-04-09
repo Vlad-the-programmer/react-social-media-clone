@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import DropDownItem from "./DropItem";
+import DropDownItem from "./DropDownItem";
 
 type DropDownProps = {
   links: Array<string>;

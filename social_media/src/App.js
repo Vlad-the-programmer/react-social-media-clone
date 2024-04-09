@@ -3,8 +3,14 @@ import SideBar from "./components/SideBar.tsx";
 import Container from "./components/Container.tsx";
 import Row from "./components/Row.tsx";
 import Column from "./components/Column.tsx";
-import sizeEnum from "./components/SizeEnum.tsx";
-import Card from "./components/Card.tsx";
+import sizeEnum from "./components/SizeEnum";
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import { LOGIN, SIGN_UP } from "./constants/routes";
+import NotFound from "./components/NotFound";
+import PostsGroup from "./components/PostsGroup.js";
 
 function App() {
   return (
@@ -15,41 +21,30 @@ function App() {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous"
       />
+      <Router>
 
-      <Container>
         <Navbar />
-        <Row>
-          <div className="col-4 sticky sidebar">
-            <SideBar />
-          </div>
+        <Container>
+          <Row>
+            <div className="col-3 sticky sidebar">
+              <SideBar />
+            </div>
 
-          <Column
-            smallSize={sizeEnum.eight}
-            classNames={["align-items-center gy-4"]}
-          >
-            <Column smallSize={sizeEnum.five}>
-              <Card
-                buttonLink="#"
-                buttonText="button"
-                imageLink="https://picsum.photos/300/200"
-                title="Card"
-              ></Card>
+            <Column
+              smallSize={sizeEnum.eight}
+              classNames={["align-items-center gy-4"]}
+            >
+              <Routes>
+                <Route path="/" element={<PostsGroup />} />
+                <Route path={LOGIN} element={<Login />} />
+                <Route path={SIGN_UP} element={<SignUp />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </Column>
-            <Column smallSize={sizeEnum.five}>
-              <Card
-                buttonLink="#"
-                buttonText="button"
-                imageLink="https://picsum.photos/300/200"
-                title="Card"
-              ></Card>
-            </Column>
-          </Column>
-          <Column smallSize={sizeEnum.twelve}>
-            <ProfileDetail />
-          </Column>
-        </Row>
-      </Container>
-      <Footer />
+          </Row>
+        </Container>
+        <Footer />
+      </Router>
 
       <script
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

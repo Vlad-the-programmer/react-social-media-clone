@@ -1,11 +1,14 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import DropDown from "./DropDown";
+import DropDownItem from "./DropDownItem";
 
 type AvatarProps = {
   avatarLink: string;
   imgLink: string;
   altText: string;
   imgHeight: string;
+  imgWidth: string;
+  children: ReactNode;
 };
 
 function Avatar(props: AvatarProps) {
@@ -26,13 +29,17 @@ function Avatar(props: AvatarProps) {
               src={props.imgLink}
               className="rounded-circle"
               height={props.imgHeight}
+              width={props.imgWidth}
               alt={props.altText}
               loading="lazy"
             />
           </a>
-          <DropDown dropItemNames={["Profile", "User"]} links={["/", "/"]}>
-            DropDown
-          </DropDown>
+          <ul
+            className="dropdown-menu dropdown-menu-dark text-small shadow"
+            aria-labelledby="dropdownUser1"
+          >
+            {props.children}
+          </ul>
         </li>
       </ul>
     </div>
