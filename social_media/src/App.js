@@ -8,9 +8,10 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import { LOGIN, SIGN_UP } from "./constants/routes";
+import { LOGIN, PROFILE_INIT, SIGN_UP } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import PostsGroup from "./components/PostsGroup.js";
+import ProfileDetail from "./components/ProfileDetail.tsx";
 
 function App() {
   return (
@@ -22,7 +23,6 @@ function App() {
         crossorigin="anonymous"
       />
       <Router>
-
         <Navbar />
         <Container>
           <Row>
@@ -38,6 +38,7 @@ function App() {
                 <Route path="/" element={<PostsGroup />} />
                 <Route path={LOGIN} element={<Login />} />
                 <Route path={SIGN_UP} element={<SignUp />} />
+                <Route path={PROFILE_INIT} element={<ProfileDetail />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Column>

@@ -1,6 +1,6 @@
 export const data = [
   {
-    "full name": "Vladyslav Klymchuk",
+    fullName: "Vladyslav Klymchuk",
     username: "vlad",
     email: "vlad@gmail.com",
     password: "12345",

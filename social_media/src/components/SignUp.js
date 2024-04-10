@@ -21,7 +21,7 @@ function SignUp() {
     if (!usernameExists(username)) {
       if (!userExists(emailAddress)) {
         data.push({
-          "full name": fullName,
+          fullName: fullName,
           username: username,
           email: emailAddress,
           password: password,
