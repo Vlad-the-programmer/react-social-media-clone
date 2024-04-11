@@ -3,8 +3,8 @@ import sizeEnum from "./SizeEnum"
 
 type ColumnProps = {
   smallSize: sizeEnum;
-  mediumSize: sizeEnum;
-  largeSize: sizeEnum;
+  // mediumSize: sizeEnum;
+  // largeSize: sizeEnum;
   children: ReactNode;
   classNames: Array<string>;
 };

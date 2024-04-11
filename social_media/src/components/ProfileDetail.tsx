@@ -13,13 +13,13 @@ import Icon from "./Icon";
 
 function ProfileDetail() {
   return (
-    <div className="container-fluid py-5 h-100">
+    <div className="container flex py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col col-md-9 col-lg-7 col-xl-7">
           <div className="card" style={{ borderRadius: "15px" }}>
             <div className="card-body p-4">
               <div className="d-flex text-black">
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-1">
                   <img
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                     alt="Generic placeholder image"

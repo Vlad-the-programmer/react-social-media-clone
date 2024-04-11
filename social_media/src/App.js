@@ -26,7 +26,7 @@ function App() {
         <Navbar />
         <Container>
           <Row>
-            <div className="col-3 sticky sidebar">
+            <div className="col-3 sticky sidebar gy-0">
               <SideBar />
             </div>
 

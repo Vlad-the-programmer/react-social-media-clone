@@ -6,9 +6,9 @@ function PostsGroup() {
   return (
     <Column
       smallSize={sizeEnum.eight}
-      classNames={["align-items-center gy-4"]}
+      classNames={["card-group align-items-center"]}
     >
-      <Column smallSize={sizeEnum.five}>
+      <Column smallSize={sizeEnum.six}>
         <Card
           buttonLink="#"
           buttonText="button"
@@ -16,7 +16,7 @@ function PostsGroup() {
           title="Card"
         ></Card>
       </Column>
-      <Column smallSize={sizeEnum.five}>
+      <Column smallSize={sizeEnum.six}>
         <Card
           buttonLink="#"
           buttonText="button"
