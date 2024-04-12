@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import sizeEnum from "./SizeEnum"
+import sizeEnum from "./SizeEnum";
 
 type ColumnProps = {
   smallSize: sizeEnum;
@@ -114,7 +114,7 @@ function Column(props: ColumnProps) {
         translateSizeToSmallClass(props.smallSize) +
         " " +
         getClassesNamesString(props.classNames) +
-        " px-3 gy-3"
+        " px-3"
       }
     >
       {props.children}

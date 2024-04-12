@@ -12,6 +12,7 @@ import { LOGIN, PROFILE_INIT, SIGN_UP } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import PostsGroup from "./components/PostsGroup.js";
 import ProfileDetail from "./components/ProfileDetail.tsx";
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -23,28 +24,15 @@ function App() {
         crossorigin="anonymous"
       />
       <Router>
-        <Navbar />
-        <Container>
-          <Row>
-            <div className="col-3 sticky sidebar gy-0">
-              <SideBar />
-            </div>
-
-            <Column
-              smallSize={sizeEnum.eight}
-              classNames={["align-items-center gy-4"]}
-            >
-              <Routes>
-                <Route path="/" element={<PostsGroup />} />
-                <Route path={LOGIN} element={<Login />} />
-                <Route path={SIGN_UP} element={<SignUp />} />
-                <Route path={PROFILE_INIT} element={<ProfileDetail />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Column>
-          </Row>
-        </Container>
-        <Footer />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" index element={<PostsGroup />} />
+            <Route path={LOGIN} element={<Login />} />
+            <Route path={SIGN_UP} element={<SignUp />} />
+            <Route path={PROFILE_INIT} element={<ProfileDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
       </Router>
 
       <script
