@@ -1,40 +1,50 @@
 import React, { ReactNode, useState } from "react";
-
+import Column from "./Column";
+import sizeEnum from "./SizeEnum";
 
 type CardProps = {
-    children: ReactNode,
-    buttonLink: string,
-    imageLink: string,
-    buttonText: string,
-    title: string,
-}
+  children: ReactNode;
+  buttonLink: string;
+  imageLink: string;
+  title: string;
+  columnSize: sizeEnum;
+  buttonNames: Array<string>;
+};
 
-
-function Card(props: CardProps){
-    function changeBackGround(){
-        
-        if(cardbackground === "bg-white"){
-            setcardbackground("bg-secondary")
-        }
-        else{
-            setcardbackground("bg-white")
-        }
+function Card(props: CardProps) {
+  function changeButtonBackground() {
+    if (buttonBackground === "btn-primary") {
+      setButtonBackground("btn-success");
+      setButtonText(props.buttonNames[1]);
+    } else {
+      setButtonBackground("btn-primary");
+      setButtonText(props.buttonNames[0]);
     }
-    const [cardbackground, setcardbackground] = useState("bg-white")
-    return (
-        <div className = {`${cardbackground} card`}>
-            <img src={props.imageLink} className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">{props.title}</h5>
-                {props.children}
-                <a  
-                    href={props.buttonLink} 
-                    onClick={changeBackGround} 
-                    className="btn btn-primary"
-                >{props.buttonText}
-                </a>
-            </div>
+  }
+
+  const [buttonBackground, setButtonBackground] = useState("btn-primary");
+  const [buttonText, setButtonText] = useState(props.buttonNames[0]);
+
+  return (
+    <Column smallSize={props.columnSize} classNames={["my-2"]}>
+      <div className="card">
+        <img src={props.imageLink} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{props.title}</h5>
+          {props.children}
+          <hr />
+          <div className="ms-4">
+            <a
+              href={props.buttonLink}
+              onClick={changeButtonBackground}
+              className={`btn ${buttonBackground} ms-5`}
+            >
+              {buttonText}
+            </a>
+          </div>
         </div>
-    )
+      </div>
+    </Column>
+  );
 }
-export default Card
+export default Card;

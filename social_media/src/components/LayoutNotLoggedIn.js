@@ -12,7 +12,7 @@ export default function LayoutNotLoggedIn() {
       <Container>
         <Row>
           <Column
-            smallSize={sizeEnum.eight}
+            smallSize={sizeEnum.twelve}
             classNames={["align-items-center gy-4"]}
           >
             <Outlet />

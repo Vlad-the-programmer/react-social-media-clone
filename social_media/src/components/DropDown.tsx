@@ -12,7 +12,7 @@ const getDropDownItems = (
   links: Array<string>
 ) => {
   return dropItemNames.map((name, i) => {
-    <DropDownItem key={i} link={links[i]} dropItemName={name} />;
+    return <DropDownItem key={i} link={links[i]} dropItemName={name} />;
   });
 };
 
@@ -35,7 +35,7 @@ function DropDown(props: DropDownProps) {
         className="dropdown-menu dropdown-menu-dark text-small shadow"
         aria-labelledby="dropdownUser1"
       >
-        getDropDownItems(props.dropItemNames, props.links)
+        {getDropDownItems(props.dropItemNames, props.links)}
       </ul>
     </div>
   );

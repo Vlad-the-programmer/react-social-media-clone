@@ -1,7 +1,6 @@
 import Icon from "./Icon.tsx";
 import NavbarLink from "./NavbarLink.tsx";
 import Avatar from "./Avatar.tsx";
-import { Outlet } from "react-router-dom";
 import { LOGIN, SIGN_UP } from "../constants/routes.js";
 import DropDownItem from "./DropDownItem.tsx";
 

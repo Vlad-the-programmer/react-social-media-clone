@@ -5,11 +5,7 @@ type ContainerProps = {
 };
 
 function Container(props: ContainerProps) {
-  return (
-    <div className="container-fluid  flex max-w-screen-md items-center h-screen">
-      {props.children}
-    </div>
-  );
+  return <div className="container-fluid">{props.children}</div>;
 }
 
 export default Container;

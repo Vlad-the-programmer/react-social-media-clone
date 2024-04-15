@@ -1,4 +1,8 @@
-export const DASHBOARD = "/";
+export const GROUPS = "/groups/";
+export const FRIENDS = "/friends/";
+export const BOOKMARKS = "/bookmarks/";
+export const FEEDS = "/feeds/";
+
 export const HOME_URL_NOT_AUTH = "/not-auth";
 export const LOGIN = "/login";
 export const SIGN_UP = "/sign-up";
