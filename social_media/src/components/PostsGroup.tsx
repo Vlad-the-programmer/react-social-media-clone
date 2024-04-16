@@ -1,34 +1,33 @@
-import Column from "./Column";
 import sizeEnum from "./SizeEnum";
-import Card from "./Card";
+import PostCard from "./PostCard";
 
-type CardsGroup = {
+type PostsGroup = {
   buttonLink: string;
   imageLinks: Array<string>;
   titles: Array<string>;
   cardTexts: Array<string>;
-  buttonNames: Array<string>;
+  buttonName: string;
 };
 
-function CardsGroup(props: CardsGroup) {
+function PostsGroup(props: PostsGroup) {
   return (
     <>
       {props.imageLinks.map((v, i) => {
         return (
-          <Card
+          <PostCard
             key={i}
             buttonLink={props.buttonLink}
             imageLink={props.imageLinks[i]}
             title={props.titles[i]}
             columnSize={sizeEnum.six}
-            buttonNames={props.buttonNames}
+            buttonName={props.buttonName}
           >
             {props.cardTexts[i]}
-          </Card>
+          </PostCard>
         );
       })}
     </>
   );
 }
 
-export default CardsGroup;
+export default PostsGroup;

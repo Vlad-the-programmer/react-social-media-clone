@@ -24,7 +24,7 @@ function Card(props: CardProps) {
 
   const [buttonBackground, setButtonBackground] = useState("btn-primary");
   const [buttonText, setButtonText] = useState(props.buttonNames[0]);
-
+  console.log(buttonText);
   return (
     <Column smallSize={props.columnSize} classNames={["my-2"]}>
       <div className="card">
@@ -35,7 +35,7 @@ function Card(props: CardProps) {
           <hr />
           <div className="ms-4">
             <a
-              href={props.buttonLink}
+              // href={props.buttonLink}
               onClick={changeButtonBackground}
               className={`btn ${buttonBackground} ms-5`}
             >

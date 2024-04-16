@@ -16,10 +16,7 @@ export default function Layout() {
             <SideBar />
           </div>
 
-          <Column
-            smallSize={sizeEnum.eight}
-            classNames={["align-items-center"]}
-          >
+          <Column smallSize={sizeEnum.nine} classNames={["align-items-center"]}>
             <Outlet />
           </Column>
         </Row>

@@ -1,5 +1,7 @@
 export const GROUPS = "/groups/";
 export const FRIENDS = "/friends/";
+export const PEOPLE = "/people/";
+
 export const BOOKMARKS = "/bookmarks/";
 export const FEEDS = "/feeds/";
 

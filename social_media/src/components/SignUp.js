@@ -53,7 +53,7 @@ function SignUp() {
             alt="Instagram"
           />
         </div>
-        <div className="flex flex-column col-sm-4">
+        <div className="flex flex-column col-sm-3 mx-5">
           <div className="d-flex flex-column flex-direction-column align-items-center bg-white p-4 border border-gray-primary mb-4 rounded">
             <h1 className="flex justify-content-center">
               <Icon width="32" height="32" class="bi bi-instagram">

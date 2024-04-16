@@ -34,7 +34,7 @@ function Login() {
 
   return (
     <div className="container flex mw-auto h-screen">
-      <div className="d-flex flex-row align-items-center gx-6">
+      <div className="d-flex flex-row align-items-center mx-5">
         <div className="flex flex-column mx-5">
           <img
             src={process.env.PUBLIC_URL + "media/login.png"}
@@ -43,7 +43,7 @@ function Login() {
             height={"400"}
           />
         </div>
-        <div className="flex flex-column px-5 col-sm-5">
+        <div className="flex flex-column px-5 col-sm-5 mx-5">
           <div className="d-flex flex-column flex-direction-column align-items-center bg-white p-4 border border-gray-primary mb-4 rounded">
             <h1 className="flex justify-content-center">
               <Icon width="32" height="32" class="bi bi-instagram">
@@ -53,7 +53,7 @@ function Login() {
 
             {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
-            <form onSubmit={handleLogin} method="POST">
+            <form onSubmit={handleLogin} method="POST" className="mx-3">
               <input
                 aria-label="Enter your email address"
                 type="text"
