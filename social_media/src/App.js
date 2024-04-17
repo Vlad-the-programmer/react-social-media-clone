@@ -8,6 +8,7 @@ import {
   GROUPS,
   FRIENDS,
   PEOPLE,
+  FEEDS,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -23,12 +24,12 @@ import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
 function App() {
   return (
     <div className="App">
-      <link
+      {/* <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous"
-      />
+      /> */}
       <Router>
         <Routes>
           <Route element={<Layout />}>
@@ -135,7 +136,35 @@ function App() {
                       "Someone 3",
                       "Someone 4",
                     ]}
-                    buttonNames={["Follow", "UnFollowed"]}
+                    buttonNames={["Follow", "UnFollow"]}
+                  />
+                </Column>
+              }
+            />
+            <Route
+              path={FEEDS}
+              element={
+                <Column
+                  smallSize={sizeEnum.nine}
+                  classNames={["card-group align-items-center mt-4"]}
+                >
+                  <PostsGroup
+                    imageLinks={[
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                    ]}
+                    titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
+                    buttonLink="/"
+                    columnSize={sizeEnum.six}
+                    cardTexts={[
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                    ]}
+                    buttonName={["Read more"]}
                   />
                 </Column>
               }
@@ -151,11 +180,11 @@ function App() {
         </Routes>
       </Router>
 
-      <script
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      {/* <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"
-      ></script>
+      ></script> */}
     </div>
   );
 }

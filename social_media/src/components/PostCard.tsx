@@ -23,7 +23,7 @@ function PostCard(props: PostCardProps) {
   const [buttonBackground, setButtonBackground] = useState("btn-primary");
 
   return (
-    <Column smallSize={props.columnSize} classNames={["my-2"]}>
+    <Column smallSize={props.columnSize} classNames={["my-1"]}>
       <div className="card">
         <img src={props.imageLink} className="card-img-top" alt="..." />
         <div className="card-body">

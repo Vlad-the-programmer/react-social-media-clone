@@ -3,6 +3,8 @@ import NavbarLink from "./NavbarLink.tsx";
 import Avatar from "./Avatar.tsx";
 import { LOGIN, SIGN_UP } from "../constants/routes.js";
 import DropDownItem from "./DropDownItem.tsx";
+import ModalLink from "./ModalLink.tsx";
+import Modal from "./Modal.tsx";
 
 function Navbar() {
   return (
@@ -49,11 +51,17 @@ function Navbar() {
               </Icon>
             </NavbarLink>
 
-            <NavbarLink link="http://www.w3.org" text="Notification bell">
+            <ModalLink
+              modal={
+                <Modal title="Notifications" buttonName="Show All">
+                  hey
+                </Modal>
+              }
+            >
               <Icon width="16" height="16" className="bi bi-bell-fill">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
               </Icon>
-            </NavbarLink>
+            </ModalLink>
 
             <Avatar
               imgLink="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
@@ -63,7 +71,7 @@ function Navbar() {
               altText="Black and White Portrait of a Man"
             >
               <DropDownItem link="/" dropItemName="Profile" />
-              <DropDownItem link="/" dropItemName="Signout" />
+              <DropDownItem link="/" dropItemName="SignOut" />
             </Avatar>
 
             <NavbarLink link={LOGIN}>Login</NavbarLink>

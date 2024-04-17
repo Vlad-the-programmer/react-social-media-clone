@@ -21,15 +21,16 @@ function DropDown(props: DropDownProps) {
 
   return (
     <div className="dropdown">
-      <button
+      <a
         // href="#"
+        role="button"
         className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-        id="dropdownUser1"
         data-bs-toggle="dropdown"
+        data-bs-target="#dropdownUser1"
         aria-expanded="false"
       >
         {props.children}
-      </button>
+      </a>
 
       <ul
         className="dropdown-menu dropdown-menu-dark text-small shadow"

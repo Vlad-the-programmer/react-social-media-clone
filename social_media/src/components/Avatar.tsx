@@ -23,6 +23,8 @@ function Avatar(props: AvatarProps) {
             id="navbarDropdownMenuAvatar"
             role="button"
             data-bs-toggle="dropdown"
+            data-bs-target="#dropdownUser1"
+            aria-controls="dropdownUser1"
             aria-expanded="false"
           >
             <img
@@ -36,6 +38,7 @@ function Avatar(props: AvatarProps) {
           </a>
           <ul
             className="dropdown-menu dropdown-menu-dark text-small shadow"
+            id="dropdownUser1"
             aria-labelledby="dropdownUser1"
           >
             {props.children}

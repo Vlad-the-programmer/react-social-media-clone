@@ -12,11 +12,14 @@ export default function Layout() {
       <Navbar />
       <Container>
         <Row>
-          <div className="col-3 px-1 bg-dark sticky-top h-100">
+          <div className="col-3 px-1 bg-dark sticky-top sidebar">
             <SideBar />
           </div>
 
-          <Column smallSize={sizeEnum.nine} classNames={["align-items-center"]}>
+          <Column
+            smallSize={sizeEnum.nine}
+            classNames={["d-flex align-items-center"]}
+          >
             <Outlet />
           </Column>
         </Row>
