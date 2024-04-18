@@ -15,11 +15,10 @@ function Avatar(props: AvatarProps) {
   return (
     <div className="collapse navbar-collapse px-3" id="navbarResponsive">
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item dropdown">
-          <a
+        <li className="nav-item">
+          {/* <a
             className="dropdown-toggle d-flex align-items-center hidden-arrow"
-            data-mdb-dropdown-init
-            href={props.avatarLink}
+            // href={props.avatarLink}
             id="navbarDropdownMenuAvatar"
             role="button"
             data-bs-toggle="dropdown"
@@ -38,11 +37,26 @@ function Avatar(props: AvatarProps) {
           </a>
           <ul
             className="dropdown-menu dropdown-menu-dark text-small shadow"
-            id="dropdownUser1"
+            // id="dropdownUser1"
             aria-labelledby="dropdownUser1"
           >
             {props.children}
-          </ul>
+          </ul> */}
+          <DropDown
+            dropItemNames={["Profile", "SignOut"]}
+            links={["/", "/"]}
+            classNames={""}
+          >
+            <img
+              src={props.imgLink}
+              className="rounded-circle"
+              height={props.imgHeight}
+              width={props.imgWidth}
+              alt={props.altText}
+              loading="lazy"
+            />
+            {/* <strong> John W </strong> */}
+          </DropDown>
         </li>
       </ul>
     </div>

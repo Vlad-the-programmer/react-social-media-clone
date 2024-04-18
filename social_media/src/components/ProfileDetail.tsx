@@ -1,17 +1,31 @@
 import React, { ReactNode } from "react";
-import Icon from "./Icon";
 
-// type ProfileDetailProps = {
-//   postsCount: Number,
-//   followers: Number,
-//   followingUsersCount: Number
-//   userName: string,
-//   fullName: string,
-//   description: string,
-//   children: ReactNode,
-// };
+type ProfileDetailProps = {
+  // postsCount: string;
+  followers: string;
+  followingUsersCount: string;
+  userName: string;
+  fullName: string;
+  description: Array<string>;
+  smallUnderFullNameText: string;
+  profileImgLink: string;
+  imgUrls: Array<Array<string>>;
+  photosCount: string;
+  children: ReactNode;
+};
 
-function ProfileDetail() {
+const getImages = (imgUrls: Array<string>) => {
+  return imgUrls.map((imgUrl, i) => {
+    return (
+      <>
+        <div className="col mb-2">
+          <img src={imgUrl} alt={`image ${i}`} className="w-100 rounded-3" />
+        </div>
+      </>
+    );
+  });
+};
+function ProfileDetail(props: ProfileDetailProps) {
   return (
     <div className="container flex-shrink-0 py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
@@ -21,18 +35,18 @@ function ProfileDetail() {
               <div className="d-flex text-black">
                 <div className="flex-shrink-1">
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                    alt="Generic placeholder image"
+                    src={props.profileImgLink}
+                    alt="..."
                     className="img-fluid"
                     style={{ width: "180px", borderRadius: "10px" }}
                   />
                 </div>
                 <div className="flex-grow-1 ms-3">
-                  <h5 className="mb-1">Danny McLoan</h5>
+                  <h5 className="mb-1">{props.fullName}</h5>
                   <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>
-                    Senior Journalist
+                    {props.smallUnderFullNameText}
                   </p>
-                  <div
+                  {/* <div
                     className="d-flex justify-content-start rounded-3 p-2 mb-2"
                     style={{ backgroundColor: "#efefef" }}
                   >
@@ -47,8 +61,8 @@ function ProfileDetail() {
                     <div>
                       <p className="small text-muted mb-1">Rating</p>
                       <p className="mb-0">8.5</p>
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
                   <div className="d-flex pt-1">
                     <button
                       type="button"
@@ -72,15 +86,15 @@ function ProfileDetail() {
             >
               <div className="d-flex justify-content-end text-center py-1">
                 <div>
-                  <p className="mb-1 h5">253</p>
+                  <p className="mb-1 h5">{props.photosCount}</p>
                   <p className="small text-muted mb-0">Photos</p>
                 </div>
                 <div className="px-3">
-                  <p className="mb-1 h5">1026</p>
+                  <p className="mb-1 h5">{props.followers}</p>
                   <p className="small text-muted mb-0">Followers</p>
                 </div>
                 <div>
-                  <p className="mb-1 h5">478</p>
+                  <p className="mb-1 h5">{props.followingUsersCount}</p>
                   <p className="small text-muted mb-0">Following</p>
                 </div>
               </div>
@@ -89,9 +103,9 @@ function ProfileDetail() {
               <div className="mb-5">
                 <p className="lead fw-normal mb-1">About</p>
                 <div className="p-4" style={{ backgroundColor: "#f8f9fa" }}>
-                  <p className="font-italic mb-1">Web Developer</p>
-                  <p className="font-italic mb-1">Lives in New York</p>
-                  <p className="font-italic mb-0">Photographer</p>
+                  {props.description.map((el, i) => {
+                    return <p className="font-italic mb-1">{el}</p>;
+                  })}
                 </div>
               </div>
               <div className="d-flex justify-content-between align-items-center mb-4">
@@ -102,38 +116,13 @@ function ProfileDetail() {
                   </a>
                 </p>
               </div>
-              <div className="row g-2">
-                <div className="col mb-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                    alt="image 1"
-                    className="w-100 rounded-3"
-                  />
-                </div>
-                <div className="col mb-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                    alt="image 1"
-                    className="w-100 rounded-3"
-                  />
-                </div>
-              </div>
-              <div className="row g-2">
-                <div className="col">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                    alt="image 1"
-                    className="w-100 rounded-3"
-                  />
-                </div>
-                <div className="col">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                    alt="image 1"
-                    className="w-100 rounded-3"
-                  />
-                </div>
-              </div>
+              {props.imgUrls.map((imageUrls, i) => {
+                return (
+                  <>
+                    <div className="row g-2">{getImages(imageUrls)}</div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -80,7 +80,7 @@ function App() {
                     buttonLink="/"
                     columnSize={sizeEnum.six}
                     cardTexts={["Group 1", "Group 2", "Group 3", "Group 4"]}
-                    buttonNames={["Follow", "Followed"]}
+                    buttonNames={["Follow", "UnFollow"]}
                   />
                 </Column>
               }
@@ -103,7 +103,7 @@ function App() {
                     buttonLink="/"
                     columnSize={sizeEnum.six}
                     cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
-                    buttonNames={["UnFollow", "UnFollowed"]}
+                    buttonNames={["Follow", "UnFollow"]}
                   />
                 </Column>
               }
@@ -169,7 +169,30 @@ function App() {
                 </Column>
               }
             />
-            <Route path={PROFILE_INIT} element={<ProfileDetail />} />
+            <Route
+              path={PROFILE_INIT}
+              element={
+                <ProfileDetail
+                  followers={"200"}
+                  followingUsersCount={"400"}
+                  photosCount="20"
+                  fullName="Danny McLoan"
+                  smallUnderFullNameText="Senior Journalist"
+                  description={["Web Developer", "Designer", "Photographer"]}
+                  profileImgLink="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                  imgUrls={[
+                    [
+                      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
+                      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
+                    ],
+                    [
+                      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp",
+                      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
+                    ],
+                  ]}
+                />
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
 
