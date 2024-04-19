@@ -9,6 +9,7 @@ import {
   FRIENDS,
   PEOPLE,
   FEEDS,
+  CHAT,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -20,6 +21,7 @@ import GroupsCardsGroup from "./components/GroupsCardsGroup.tsx";
 import PostsGroup from "./components/PostsGroup.tsx";
 import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
+import Chat from "./components/Chat";
 
 function App() {
   return (
@@ -177,7 +179,7 @@ function App() {
                   followingUsersCount={"400"}
                   photosCount="20"
                   fullName="Danny McLoan"
-                  smallUnderFullNameText="Senior Journalist"
+                  smallUnderFullNameText={["23 y.o.", <br />, "Bachelor"]}
                   description={["Web Developer", "Designer", "Photographer"]}
                   profileImgLink="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                   imgUrls={[
@@ -191,6 +193,45 @@ function App() {
                     ],
                   ]}
                 />
+              }
+            />
+            <Route
+              path={CHAT}
+              element={
+                <Chat
+                  senderImgUrl="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
+                  senderName="Vlad"
+                  receiverName="John"
+                  receiverImgUrl="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                  senderMessageAndDateTime={[
+                    {
+                      message:
+                        "For what reason would it be advisable for me to think \
+                      about business content?",
+                      dateAndTime: "23 Jan 2:00 pm",
+                    },
+                    {
+                      message:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit \
+                      similique quae consequatur",
+                      dateAndTime: "23 Jan 5:37 pm",
+                    },
+                  ]}
+                  receiverMessageAndDateTime={[
+                    {
+                      message:
+                        "For what reason would it be advisable for me to think \
+                      about business content?",
+                      dateAndTime: "23 Jan 2:00 pm",
+                    },
+                    {
+                      message:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit \
+                      similique quae consequatur",
+                      dateAndTime: "23 Jan 5:37 pm",
+                    },
+                  ]}
+                ></Chat>
               }
             />
             <Route path="*" element={<NotFound />} />

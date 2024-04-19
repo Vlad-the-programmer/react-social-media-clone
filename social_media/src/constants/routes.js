@@ -1,9 +1,9 @@
 export const GROUPS = "/groups/";
 export const FRIENDS = "/friends/";
 export const PEOPLE = "/people/";
-
 export const BOOKMARKS = "/bookmarks/";
 export const FEEDS = "/feeds/";
+export const CHAT = "/chat/";
 
 export const HOME_URL_NOT_AUTH = "/not-auth";
 export const LOGIN = "/login";

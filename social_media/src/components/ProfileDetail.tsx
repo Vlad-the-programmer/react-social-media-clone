@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 
 type ProfileDetailProps = {
   // postsCount: string;
@@ -25,7 +25,16 @@ const getImages = (imgUrls: Array<string>) => {
     );
   });
 };
+
 function ProfileDetail(props: ProfileDetailProps) {
+  const [isFollowed, setIsFollowed] = useState(false);
+  const handleFollowClick = () => {
+    if (isFollowed === true) {
+      setIsFollowed(false);
+    } else {
+      setIsFollowed(true);
+    }
+  };
   return (
     <div className="container flex-shrink-0 py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
@@ -73,8 +82,9 @@ function ProfileDetail(props: ProfileDetailProps) {
                     <button
                       type="button"
                       className="btn btn-primary flex-grow-1"
+                      onClick={handleFollowClick}
                     >
-                      Follow
+                      {isFollowed ? "UnFollow" : "Follow"}
                     </button>
                   </div>
                 </div>
