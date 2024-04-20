@@ -122,23 +122,25 @@ function SideBar(props: SideBarProps) {
           </LinkWithIcon>
         </li>
       </ul>
-      <hr />
-      <DropDown
-        dropItemNames={[]}
-        links={[]}
-        classNames={
-          "d-flex align-items-center text-white text-decoration-none bg-dark"
-        }
-      >
-        <img
-          src="https://github.com/mdo.png"
-          alt=""
-          width="32"
-          height="32"
-          className="rounded-circle me-2"
-        />
-        <strong> John W </strong>
-      </DropDown>
+      {/* <div className="flex-column align-items-end mt-6">
+        <hr />
+        <DropDown
+          dropItemNames={[]}
+          links={[]}
+          classNames={
+            "d-flex align-items-center text-white text-decoration-none bg-dark"
+          }
+        >
+          <img
+            src="https://github.com/mdo.png"
+            alt=""
+            width="32"
+            height="32"
+            className="rounded-circle me-2"
+          />
+          <strong> John W </strong>
+        </DropDown>
+      </div> */}
     </div>
   );
 }

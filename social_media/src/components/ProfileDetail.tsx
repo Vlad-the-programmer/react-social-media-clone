@@ -55,23 +55,7 @@ function ProfileDetail(props: ProfileDetailProps) {
                   <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>
                     {props.smallUnderFullNameText}
                   </p>
-                  {/* <div
-                    className="d-flex justify-content-start rounded-3 p-2 mb-2"
-                    style={{ backgroundColor: "#efefef" }}
-                  >
-                    <div>
-                      <p className="small text-muted mb-1">Articles</p>
-                      <p className="mb-0">41</p>
-                    </div>
-                    <div className="px-3">
-                      <p className="small text-muted mb-1">Followers</p>
-                      <p className="mb-0">976</p>
-                    </div>
-                    <div>
-                      <p className="small text-muted mb-1">Rating</p>
-                      <p className="mb-0">8.5</p>
-                    </div> */}
-                  {/* </div> */}
+
                   <div className="d-flex pt-1">
                     <button
                       type="button"
