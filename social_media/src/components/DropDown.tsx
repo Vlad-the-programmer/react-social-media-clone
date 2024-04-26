@@ -20,24 +20,25 @@ const getDropDownItems = (
 function DropDown(props: DropDownProps) {
   return (
     <>
-      <a
-        className={"dropdown-toggle hidden-arrow " + props.classNames}
-        data-bs-toggle="collapse"
-        href="#Dropdown"
-        role="button"
-        aria-expanded="false"
-        aria-controls="Dropdown"
-      >
-        {props.children}
-      </a>
-      <div className="collapse" id="Dropdown">
-        <div className="dropdown">
-          {/* <a
+      <div className="dropdown">
+        <button
+          className={
+            "dropdown-toggle hidden-arrow nav-link " + props.classNames
+          }
+          data-bs-toggle="dropdown"
+          // href="#Dropdown"
+          type="button"
+          aria-expanded="false"
+          // aria-controls="dropdownUser1"
+        >
+          {props.children}
+        </button>
+        {/* <a
             // href="#"
             role="button"
             className={
               "dropdown-toggle" +
-              props.classNames.map((className, i) => {
+              props.classNames.split("").map((className, i) => {
                 return " " + className;
               })
             }
@@ -48,13 +49,12 @@ function DropDown(props: DropDownProps) {
             {props.children}
           </a> */}
 
-          <ul
-            className="dropdown-menu dropdown-menu-dark text-small shadow"
-            aria-labelledby="dropdownUser1"
-          >
-            {getDropDownItems(props.dropItemNames, props.links)}
-          </ul>
-        </div>
+        <ul
+          className="dropdown-menu dropdown-menu-dark text-small shadow"
+          // aria-labelledby="dropdownUser1"
+        >
+          {getDropDownItems(props.dropItemNames, props.links)}
+        </ul>
       </div>
     </>
   );

@@ -18,7 +18,11 @@ const renderMessages = (props: ChatProps) => {
       <>
         <div
           className="card-body"
-          data-mdb-perfect-scrollbar="true"
+          // data-mdb-perfect-scrollbar="true"
+          data-bs-spy="scroll"
+          // data-bs-target="#list-example"
+          data-bs-smooth-scroll="true"
+          tabIndex={0}
           style={{ position: "relative", height: "250px" }}
         >
           <div className="d-flex justify-content-between">

@@ -13,10 +13,11 @@ type AvatarProps = {
 
 function Avatar(props: AvatarProps) {
   return (
-    <div className="collapse navbar-collapse px-3" id="navbarResponsive">
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          {/* <a
+    <>
+      {/* // <div className="collapse navbar-collapse px-3" id="navbarResponsive">
+    //   <ul className="navbar-nav ml-auto">
+    //     <li className="nav-item"> */}
+      {/* <a
             className="dropdown-toggle d-flex align-items-center hidden-arrow"
             // href={props.avatarLink}
             id="navbarDropdownMenuAvatar"
@@ -42,24 +43,25 @@ function Avatar(props: AvatarProps) {
           >
             {props.children}
           </ul> */}
-          <DropDown
-            dropItemNames={["Profile", "SignOut"]}
-            links={["/", "/"]}
-            classNames={""}
-          >
-            <img
-              src={props.imgLink}
-              className="rounded-circle"
-              height={props.imgHeight}
-              width={props.imgWidth}
-              alt={props.altText}
-              loading="lazy"
-            />
-            {/* <strong> John W </strong> */}
-          </DropDown>
-        </li>
-      </ul>
-    </div>
+      <DropDown
+        dropItemNames={["Profile", "SignOut"]}
+        links={["/", "/"]}
+        classNames={""}
+      >
+        <img
+          src={props.imgLink}
+          className="rounded-circle"
+          height={props.imgHeight}
+          width={props.imgWidth}
+          alt={props.altText}
+          loading="lazy"
+        />
+        {/* <strong> John W </strong> */}
+      </DropDown>
+    </>
+    //     </li>
+    //   </ul>
+    // </div>
   );
 }
 

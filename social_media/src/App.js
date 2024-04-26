@@ -216,6 +216,18 @@ function App() {
                       similique quae consequatur",
                       dateAndTime: "23 Jan 5:37 pm",
                     },
+                    {
+                      message:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit \
+                      similique quae consequatur",
+                      dateAndTime: "23 Jan 5:37 pm",
+                    },
+                    {
+                      message:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit \
+                      similique quae consequatur",
+                      dateAndTime: "23 Jan 5:37 pm",
+                    },
                   ]}
                   receiverMessageAndDateTime={[
                     {
@@ -223,6 +235,18 @@ function App() {
                         "For what reason would it be advisable for me to think \
                       about business content?",
                       dateAndTime: "23 Jan 2:00 pm",
+                    },
+                    {
+                      message:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit \
+                      similique quae consequatur",
+                      dateAndTime: "23 Jan 5:37 pm",
+                    },
+                    {
+                      message:
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit \
+                      similique quae consequatur",
+                      dateAndTime: "23 Jan 5:37 pm",
                     },
                     {
                       message:
