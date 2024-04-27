@@ -20,11 +20,9 @@ const getDropDownItems = (
 function DropDown(props: DropDownProps) {
   return (
     <>
-      <div className="dropdown">
+      <div className="dropdown mx-1">
         <button
-          className={
-            "dropdown-toggle hidden-arrow nav-link " + props.classNames
-          }
+          className={"dropdown-toggle nav-link " + props.classNames}
           data-bs-toggle="dropdown"
           // href="#Dropdown"
           type="button"

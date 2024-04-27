@@ -16,55 +16,45 @@ const renderMessages = (props: ChatProps) => {
   return props.senderMessageAndDateTime.map((v, i) => {
     return (
       <>
-        <div
-          className="card-body"
-          // data-mdb-perfect-scrollbar="true"
-          data-bs-spy="scroll"
-          // data-bs-target="#list-example"
-          data-bs-smooth-scroll="true"
-          tabIndex={0}
-          style={{ position: "relative", height: "250px" }}
-        >
-          <div className="d-flex justify-content-between">
-            <p className="small mb-1">{props.senderName}</p>
-            <p className="small mb-1 text-muted">
-              {props.senderMessageAndDateTime[i].dateAndTime}
+        <div className="d-flex justify-content-between">
+          <p className="small mb-1">{props.senderName}</p>
+          <p className="small mb-1 text-muted">
+            {props.senderMessageAndDateTime[i].dateAndTime}
+          </p>
+        </div>
+        <div className="d-flex flex-row justify-content-start">
+          <img
+            src={props.senderImgUrl}
+            alt="avatar 1"
+            style={{ width: "45px", height: "100%" }}
+          />
+          <div>
+            <p
+              className="small p-2 ms-3 mb-3 rounded-3"
+              style={{ backgroundColor: "#f5f6f7" }}
+            >
+              {props.senderMessageAndDateTime[i].message}
             </p>
           </div>
-          <div className="d-flex flex-row justify-content-start">
-            <img
-              src={props.senderImgUrl}
-              alt="avatar 1"
-              style={{ width: "45px", height: "100%" }}
-            />
-            <div>
-              <p
-                className="small p-2 ms-3 mb-3 rounded-3"
-                style={{ backgroundColor: "#f5f6f7" }}
-              >
-                {props.senderMessageAndDateTime[i].message}
-              </p>
-            </div>
-          </div>
+        </div>
 
-          <div className="d-flex justify-content-between">
-            <p className="small mb-1 text-muted">
-              {props.senderMessageAndDateTime[i].dateAndTime}
+        <div className="d-flex justify-content-between">
+          <p className="small mb-1 text-muted">
+            {props.senderMessageAndDateTime[i].dateAndTime}
+          </p>
+          <p className="small mb-1">{props.receiverName}</p>
+        </div>
+        <div className="d-flex flex-row justify-content-end mb-4 pt-1">
+          <div>
+            <p className="small p-2 me-3 mb-3 text-white rounded-3 bg-warning">
+              {props.senderMessageAndDateTime[i].message}
             </p>
-            <p className="small mb-1">{props.receiverName}</p>
           </div>
-          <div className="d-flex flex-row justify-content-end mb-4 pt-1">
-            <div>
-              <p className="small p-2 me-3 mb-3 text-white rounded-3 bg-warning">
-                {props.senderMessageAndDateTime[i].message}
-              </p>
-            </div>
-            <img
-              src={props.receiverImgUrl}
-              alt="avatar 1"
-              style={{ width: "45px", height: "100%" }}
-            />
-          </div>
+          <img
+            src={props.receiverImgUrl}
+            alt="avatar 1"
+            style={{ width: "45px", height: "100%" }}
+          />
         </div>
       </>
     );
@@ -134,6 +124,38 @@ export default function Chat(props: ChatProps) {
                 avatarLink:
                   "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp",
               },
+              {
+                username: "Brad Pitt",
+                receivedMessage: "Hey! Whssup?",
+                receivedMessageCount: 2,
+                dateAndTimeLastWasOnline: "5 mins ago",
+                avatarLink:
+                  "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp",
+              },
+              {
+                username: "Brad Pitt",
+                receivedMessage: "Hey! Whssup?",
+                receivedMessageCount: 2,
+                dateAndTimeLastWasOnline: "5 mins ago",
+                avatarLink:
+                  "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp",
+              },
+              {
+                username: "Brad Pitt",
+                receivedMessage: "Hey! Whssup?",
+                receivedMessageCount: 2,
+                dateAndTimeLastWasOnline: "5 mins ago",
+                avatarLink:
+                  "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp",
+              },
+              {
+                username: "Brad Pitt",
+                receivedMessage: "Hey! Whssup?",
+                receivedMessageCount: 2,
+                dateAndTimeLastWasOnline: "5 mins ago",
+                avatarLink:
+                  "https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp",
+              },
             ]}
           />
           <div className="col-md-8 col-lg-8 col-xl-6">
@@ -163,7 +185,16 @@ export default function Chat(props: ChatProps) {
                   </Icon>
                 </div>
               </div>
-              {renderMessages(props)}
+              <div
+                className="card-body"
+                style={{
+                  position: "relative",
+                  height: "600px",
+                  overflow: "scroll",
+                }}
+              >
+                {renderMessages(props)}
+              </div>
             </div>
             <div className="card-footer text-muted d-flex justify-content-start align-items-center p-3">
               <div className="input-group mb-0">

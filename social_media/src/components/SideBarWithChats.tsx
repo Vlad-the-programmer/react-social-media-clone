@@ -8,7 +8,10 @@ export default function SideBarWithChats(props: SideBarWithChatsProps) {
   return (
     <div className="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
       <div className="card">
-        <div className="card-body">
+        <div
+          className="card-body"
+          style={{ overflow: "scroll", position: "relative", height: "700px" }}
+        >
           <ul className="list-unstyled mb-0">
             {props.chatObj.map((chat, i) => {
               return (

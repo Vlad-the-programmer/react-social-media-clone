@@ -1,6 +1,8 @@
 import React, { ReactNode, useState } from "react";
 import Column from "./Column";
 import sizeEnum from "./SizeEnum";
+import ModalLink from "./ModalLink";
+import Modal from "./Modal";
 
 type CardProps = {
   children: ReactNode;
@@ -34,13 +36,24 @@ function Card(props: CardProps) {
           {props.children}
           <hr />
           <div className="ms-4">
-            <a
+            {/* <a
               // href={props.buttonLink}
               onClick={changeButtonBackground}
               className={`btn ${buttonBackground} ms-5`}
             >
               {buttonText}
-            </a>
+            </a> */}
+            <ModalLink
+              modal={
+                <Modal title={props.title} buttonName="Show All">
+                  hey
+                </Modal>
+              }
+              btnClassNames={`btn ${buttonBackground} ms-5`}
+              onClick={changeButtonBackground}
+            >
+              {buttonText}
+            </ModalLink>
           </div>
         </div>
       </div>

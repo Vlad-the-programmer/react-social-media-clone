@@ -56,7 +56,6 @@ function Avatar(props: AvatarProps) {
           alt={props.altText}
           loading="lazy"
         />
-        {/* <strong> John W </strong> */}
       </DropDown>
     </>
     //     </li>
