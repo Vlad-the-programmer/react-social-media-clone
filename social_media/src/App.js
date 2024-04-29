@@ -11,6 +11,7 @@ import {
   FEEDS,
   CHAT,
   PROFILE_ADMIN,
+  BOOKMARKS,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -147,6 +148,34 @@ function App() {
             />
             <Route
               path={FEEDS}
+              element={
+                <Column
+                  smallSize={sizeEnum.nine}
+                  classNames={["card-group align-items-center mt-4"]}
+                >
+                  <PostsGroup
+                    imageLinks={[
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                    ]}
+                    titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
+                    buttonLink="/"
+                    columnSize={sizeEnum.six}
+                    cardTexts={[
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                    ]}
+                    buttonName={["Read more"]}
+                  />
+                </Column>
+              }
+            />
+            <Route
+              path={BOOKMARKS}
               element={
                 <Column
                   smallSize={sizeEnum.nine}

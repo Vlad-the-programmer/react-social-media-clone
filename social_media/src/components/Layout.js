@@ -6,6 +6,8 @@ import Column from "./Column.tsx";
 import sizeEnum from "./SizeEnum.tsx";
 import Footer from "./Footer";
 import SideBar from "./SideBar.tsx";
+import { Link } from "react-router-dom";
+
 export default function Layout() {
   return (
     <>
@@ -20,6 +22,15 @@ export default function Layout() {
             smallSize={sizeEnum.nine}
             classNames={["d-flex align-items-center"]}
           >
+            <div className="col-1 align-self-start">
+              <Link
+                to=".."
+                relative="path"
+                className="">
+                &larr; <span>Get back</span>
+              </Link>
+            </div>
+
             <Outlet />
           </Column>
         </Row>
