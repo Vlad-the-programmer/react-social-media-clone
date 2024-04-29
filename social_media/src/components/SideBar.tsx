@@ -6,7 +6,8 @@ import {
   FRIENDS,
   GROUPS,
   PEOPLE,
-  PROFILE_INIT,
+  PROFILE,
+  PROFILE_ADMIN,
 } from "../constants/routes";
 import { Link, useLocation } from "react-router-dom";
 import DropDown from "./DropDown";
@@ -53,7 +54,7 @@ function SideBar(props: SideBarProps) {
           <Link
             id="profileButton"
             ref={link}
-            to={PROFILE_INIT}
+            to={PROFILE_ADMIN}
             className="nav-link"
             aria-current="page"
             onClick={activateLink}

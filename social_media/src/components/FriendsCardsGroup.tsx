@@ -1,5 +1,5 @@
 import sizeEnum from "./SizeEnum";
-import Card from "./Card";
+import ProfileCard from "./ProfileCard";
 
 type FriendsCardsGroup = {
   buttonLink: string;
@@ -14,7 +14,7 @@ function FriendsCardsGroup(props: FriendsCardsGroup) {
     <>
       {props.imageLinks.map((v, i) => {
         return (
-          <Card
+          <ProfileCard
             key={i}
             buttonLink={props.buttonLink}
             imageLink={props.imageLinks[i]}
@@ -23,7 +23,7 @@ function FriendsCardsGroup(props: FriendsCardsGroup) {
             buttonNames={props.buttonNames}
           >
             {props.cardTexts[i]}
-          </Card>
+          </ProfileCard>
         );
       })}
     </>

@@ -3,13 +3,14 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import {
   LOGIN,
-  PROFILE_INIT,
+  PROFILE,
   SIGN_UP,
   GROUPS,
   FRIENDS,
   PEOPLE,
   FEEDS,
   CHAT,
+  PROFILE_ADMIN,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -22,6 +23,7 @@ import PostsGroup from "./components/PostsGroup.tsx";
 import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
 import Chat from "./components/Chat";
+import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
 
 function App() {
   return (
@@ -172,7 +174,7 @@ function App() {
               }
             />
             <Route
-              path={PROFILE_INIT}
+              path={PROFILE}
               element={
                 <ProfileDetail
                   followers={"200"}
@@ -192,6 +194,16 @@ function App() {
                       "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
                     ],
                   ]}
+                />
+              }
+            />
+            <Route
+              path={PROFILE_ADMIN}
+              element={
+                <ProfileAdminPage
+                  email="vklymchuk@gmail.com"
+                  fullName="Vladyslav Klymchuk"
+                  avatarUrl="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                 />
               }
             />
