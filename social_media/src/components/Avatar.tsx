@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import DropDown from "./DropDown";
 import DropDownItem from "./DropDownItem";
+import UserAvatar from "./UserAvatar";
 
 type AvatarProps = {
   avatarLink: string;
@@ -48,13 +49,19 @@ function Avatar(props: AvatarProps) {
         links={["/", "/"]}
         classNames={""}
       >
-        <img
+        {/* <img
           src={props.imgLink}
           className="rounded-circle"
           height={props.imgHeight}
           width={props.imgWidth}
           alt={props.altText}
           loading="lazy"
+        /> */}
+        <UserAvatar
+          avatarUrl={props.imgLink}
+          width={props.imgWidth}
+          height={props.imgHeight}
+          classNames=""
         />
       </DropDown>
     </>

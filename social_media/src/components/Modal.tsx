@@ -15,7 +15,7 @@ export default function Modal(props: ModalProps) {
       aria-labelledby="customModalLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title fs-5" id="customModalLabel">
@@ -31,11 +31,11 @@ export default function Modal(props: ModalProps) {
           <div className="modal-body">
             <p>{props.children}</p>
           </div>
-          <div className="modal-footer">
+          {/* <div className="modal-footer">
             <button type="button" className="btn btn-primary">
               {props.buttonName}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

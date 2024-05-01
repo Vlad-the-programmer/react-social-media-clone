@@ -1,4 +1,5 @@
 import React from "react";
+import UserAvatar from "./UserAvatar";
 
 type SideBarWithChatsProps = {
   chatObj: Array<any>;
@@ -23,11 +24,11 @@ export default function SideBarWithChats(props: SideBarWithChatsProps) {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex flex-row">
                         <a href="#">
-                          <img
-                            src={chat.avatarLink}
-                            alt="avatar"
-                            className="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                            width="60"
+                          <UserAvatar
+                            avatarUrl={chat.avatarLink}
+                            width="60px"
+                            height="60px"
+                            classNames="d-flex align-self-center me-3 shadow-1-strong"
                           />
                         </a>
 

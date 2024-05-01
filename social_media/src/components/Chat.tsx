@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import SideBarWithChats from "./SideBarWithChats";
 import Icon from "./Icon";
+import UserAvatar from "./UserAvatar";
 
 type ChatProps = {
   senderName: string;
@@ -9,7 +10,7 @@ type ChatProps = {
   senderImgUrl: string;
   receiverImgUrl: string;
   senderMessageAndDateTime: Array<any>;
-  receiverMessageAndDateTime: Object;
+  receiverMessageAndDateTime: Array<any>;
 };
 
 const renderMessages = (props: ChatProps) => {
@@ -23,10 +24,16 @@ const renderMessages = (props: ChatProps) => {
           </p>
         </div>
         <div className="d-flex flex-row justify-content-start">
-          <img
+          {/* <img
             src={props.senderImgUrl}
             alt="avatar 1"
             style={{ width: "45px", height: "100%" }}
+          /> */}
+          <UserAvatar
+            avatarUrl={props.senderImgUrl}
+            width="45px"
+            height="100%"
+            classNames=""
           />
           <div>
             <p
@@ -40,20 +47,21 @@ const renderMessages = (props: ChatProps) => {
 
         <div className="d-flex justify-content-between">
           <p className="small mb-1 text-muted">
-            {props.senderMessageAndDateTime[i].dateAndTime}
+            {props.receiverMessageAndDateTime[i].dateAndTime}
           </p>
           <p className="small mb-1">{props.receiverName}</p>
         </div>
         <div className="d-flex flex-row justify-content-end mb-4 pt-1">
           <div>
             <p className="small p-2 me-3 mb-3 text-white rounded-3 bg-warning">
-              {props.senderMessageAndDateTime[i].message}
+              {props.receiverMessageAndDateTime[i].message}
             </p>
           </div>
-          <img
-            src={props.receiverImgUrl}
-            alt="avatar 1"
-            style={{ width: "45px", height: "100%" }}
+          <UserAvatar
+            avatarUrl={props.receiverImgUrl}
+            width="45px"
+            height="100%"
+            classNames=""
           />
         </div>
       </>
