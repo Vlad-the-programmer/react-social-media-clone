@@ -1,13 +1,90 @@
 import Icon from "./Icon.tsx";
 import NavbarLink from "./NavbarLink.tsx";
 import Avatar from "./Avatar.tsx";
-import { CHAT, LOGIN, SIGN_UP } from "../constants/routes.js";
-import DropDownItem from "./DropDownItem.tsx";
-import ModalLink from "./ModalLink.tsx";
-import Modal from "./Modal.tsx";
+import { CHAT, LOGIN, SIGN_UP, PROFILE_ADMIN } from "../constants/routes.js";
 import DropDown from "./DropDown.tsx";
+import Notification from "./Notification.tsx";
+import LinkWithIcon from "./LinkWithIcon.tsx";
 
 function Navbar() {
+  const notifsArr = [
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+    {
+      dateAndTimeReceived: "March 24 2024 15:04",
+      avatarLink:
+        "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      receivedMessageCount: "2",
+      text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
+    },
+  ];
+  const renderNotifications = (notifs) => {
+    return notifs.map((notifObj, i) => {
+      return (
+        <Notification
+          dateAndTimeReceived={notifObj.dateAndTimeReceived}
+          avatarLink={notifObj.avatarLink}
+          receivedMessageCount={notifObj.receivedMessageCount}
+          text={notifObj.text}
+        />
+      );
+    });
+  };
+
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
@@ -24,8 +101,7 @@ function Navbar() {
               <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
             </Icon>
           </a>
-
-          <div class="d-flex align-items-end justify-content-center">
+          <div class="d-flex align-items-end justify-content-between ms-5">
             <NavbarLink link="http://www.w3.org" text="Search Bar">
               <Icon width="16" height="16" className="bi bi-search">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
@@ -44,7 +120,6 @@ function Navbar() {
               </Icon>
             </NavbarLink>
           </div>
-
           <div class="d-flex align-items-end justify-content-end">
             <NavbarLink link={CHAT} text="Messenger">
               <Icon width="16" height="16" className="bi bi-messenger">
@@ -54,8 +129,18 @@ function Navbar() {
 
             <DropDown
               classNames="mx-2"
-              links={["/", "/"]}
-              dropItemNames={["Profile", "SignOut"]}
+              header={<h4>Notifications</h4>}
+              dropDownStyles={{
+                position: "absolute",
+                height: "400px",
+                overflow: "scroll",
+              }}
+              dropItems={[
+                {
+                  link: "/",
+                  item: renderNotifications(notifsArr),
+                },
+              ]}
             >
               <Icon width="16" height="16" className="bi bi-bell-fill">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
@@ -68,12 +153,35 @@ function Navbar() {
               imgHeight="25"
               imgWidth="25"
               altText="Black and White Portrait of a Man"
-            >
-              <DropDownItem link="/" dropItemName="Profile" />
-              <DropDownItem link="/" dropItemName="SignOut" />
-            </Avatar>
-            <NavbarLink link={LOGIN}>Login</NavbarLink>
+              dropDownHeader={
+                <LinkWithIcon
+                  id="profile"
+                  link={PROFILE_ADMIN}
+                  iconClassName="bi bi-person-circle"
+                  classNames="text-black"
+                  text="Vladyslav Klymchuk"
+                >
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                  <path
+                    fillRule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                  />
+                </LinkWithIcon>
+              }
+              dropDownStyles={{ paddingRight: "5px", paddingLeft: "5px" }}
+              dropDownItems={[
+                {
+                  item: "Profile",
+                  link: "/",
+                },
+                {
+                  item: "SignOut",
+                  link: "/",
+                },
+              ]}
+            />
 
+            <NavbarLink link={LOGIN}>Login</NavbarLink>
             <NavbarLink link={SIGN_UP}>Signup</NavbarLink>
           </div>
         </div>

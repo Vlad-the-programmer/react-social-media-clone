@@ -8,11 +8,16 @@ type LinkWithIconProps = {
   link: string;
   children: ReactNode;
   iconClassName: string;
+  classNames: string;
 };
 
 function LinkWithIcon(props: LinkWithIconProps) {
   return (
-    <Link id={props.id} to={props.link} className="nav-link text-white">
+    <Link
+      id={props.id}
+      to={props.link}
+      className={"nav-link " + props.classNames}
+    >
       <Icon width="16" height="16" className={props.iconClassName}>
         {props.children}
       </Icon>

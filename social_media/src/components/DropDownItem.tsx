@@ -7,8 +7,8 @@ type DropDownItemProps = {
 
 function DropDownItem(props: DropDownItemProps) {
   return (
-    <li>
-      <a className="dropdown-item" href={props.link}>
+    <li className="p-2">
+      <a className="dropdown-item p-0" href={props.link}>
         {props.dropItemName}
       </a>
     </li>
