@@ -25,8 +25,10 @@ import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
 import Chat from "./components/Chat";
 import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
+import { users } from "./utils.py/users";
 
 function App() {
+  console.log("Users app", users);
   return (
     <div className="App">
       {/* <link
@@ -228,13 +230,7 @@ function App() {
             />
             <Route
               path={PROFILE_ADMIN}
-              element={
-                <ProfileAdminPage
-                  email="vklymchuk@gmail.com"
-                  fullName="Vladyslav Klymchuk"
-                  avatarUrl="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                />
-              }
+              element={<ProfileAdminPage profileObj={users[0]} />}
             />
             <Route
               path={CHAT}

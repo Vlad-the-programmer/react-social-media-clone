@@ -1,7 +1,13 @@
 import Icon from "./Icon.tsx";
 import NavbarLink from "./NavbarLink.tsx";
 import Avatar from "./Avatar.tsx";
-import { CHAT, LOGIN, SIGN_UP, PROFILE_ADMIN } from "../constants/routes.js";
+import {
+  CHAT,
+  LOGIN,
+  SIGN_UP,
+  PROFILE_ADMIN,
+  HOME_URL_NOT_AUTH,
+} from "../constants/routes.js";
 import DropDown from "./DropDown.tsx";
 import Notification from "./Notification.tsx";
 import LinkWithIcon from "./LinkWithIcon.tsx";
@@ -76,6 +82,7 @@ function Navbar() {
     return notifs.map((notifObj, i) => {
       return (
         <Notification
+          key={i}
           dateAndTimeReceived={notifObj.dateAndTimeReceived}
           avatarLink={notifObj.avatarLink}
           receivedMessageCount={notifObj.receivedMessageCount}
@@ -149,7 +156,7 @@ function Navbar() {
 
             <Avatar
               imgLink="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-              avatarLink="/"
+              avatarLink={PROFILE_ADMIN}
               imgHeight="25"
               imgWidth="25"
               altText="Black and White Portrait of a Man"
@@ -172,11 +179,11 @@ function Navbar() {
               dropDownItems={[
                 {
                   item: "Profile",
-                  link: "/",
+                  link: PROFILE_ADMIN,
                 },
                 {
                   item: "SignOut",
-                  link: "/",
+                  link: HOME_URL_NOT_AUTH,
                 },
               ]}
             />

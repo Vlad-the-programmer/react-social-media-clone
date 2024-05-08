@@ -7,7 +7,7 @@ type SideBarWithChatsProps = {
 
 export default function SideBarWithChats(props: SideBarWithChatsProps) {
   return (
-    <div className="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+    <div className="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0 p-1">
       <div className="card">
         <div
           className="card-body"

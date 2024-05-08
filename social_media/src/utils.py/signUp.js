@@ -1,3 +1,5 @@
+import { users } from "./users.ts";
+
 export const data = [
   {
     fullName: "Vladyslav Klymchuk",
@@ -8,13 +10,13 @@ export const data = [
 ];
 
 export function usernameExists(username) {
-  return data.filter((value, i) => data[i].username === username).length > 1;
+  return users.filter((v, i) => v.username === username).length > 1;
 }
 
 export function userExists(email) {
-  return data.filter((value, i) => data[i].email === email).length > 0;
+  return users.filter((v, i) => v.email === email).length > 0;
 }
 
 export function checkPassword(password) {
-  return data.filter((value, i) => data[i].password === password).length > 0;
+  return users.filter((v, i) => v.password === password).length > 0;
 }

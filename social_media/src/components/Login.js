@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { SIGN_UP } from "../constants/routes";
 import { Link, useHistory } from "react-router-dom";
-import { data } from "./SignUp";
 import { userExists, checkPassword } from "../utils.py/signUp";
 import Icon from "./Icon.tsx";
+import { data } from "../utils.py/signUp";
+import { users, setUsers } from "../utils.py/users";
 
 function Login() {
   //   const history = useHistory();
-
+  const [usersData, setUserData] = useState(() => {
+    return users.length > 0 ? users : data;
+  });
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -30,7 +33,8 @@ function Login() {
 
   useEffect(() => {
     document.title = "Login - Instagram";
-  }, []);
+    localStorage.setItem("users", JSON.stringify(usersData));
+  }, [usersData]);
 
   return (
     <div className="container flex mw-auto h-screen">

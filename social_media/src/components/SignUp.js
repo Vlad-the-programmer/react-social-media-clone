@@ -3,9 +3,15 @@ import { Link, useHistory } from "react-router-dom";
 import { LOGIN } from "../constants/routes";
 import { userExists, usernameExists } from "../utils.py/signUp";
 import { data } from "../utils.py/signUp";
+import { users, setUsers } from "../utils.py/users";
+
 import Icon from "./Icon.tsx";
+
 function SignUp() {
   //   const history = useHistory();
+  const [usersData, setUserData] = useState(() => {
+    return users.length > 0 ? users : data;
+  });
 
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
@@ -20,12 +26,15 @@ function SignUp() {
 
     if (!usernameExists(username)) {
       if (!userExists(emailAddress)) {
-        data.push({
-          fullName: fullName,
-          username: username,
-          email: emailAddress,
-          password: password,
-        });
+        setUserData((previousUsersData) => [
+          ...previousUsersData,
+          {
+            fullName: fullName,
+            username: username,
+            email: emailAddress,
+            password: password,
+          },
+        ]);
         alert("Sign up successful!");
         // history.push(ROUTES.DASHBOARD);
       } else {
@@ -42,7 +51,8 @@ function SignUp() {
 
   useEffect(() => {
     document.title = "Sign Up - Instagram";
-  }, []);
+    setUsers(usersData);
+  }, [usersData]);
 
   return (
     <div className="container flex mx-auto h-screen">

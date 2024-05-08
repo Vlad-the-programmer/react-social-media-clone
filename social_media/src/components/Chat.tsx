@@ -73,7 +73,7 @@ export default function Chat(props: ChatProps) {
   return (
     <section style={{ backgroundColor: "#eee", width: "100%" }}>
       <div className="container py-4">
-        <div className="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center mx-0">
           <SideBarWithChats
             chatObj={[
               {
