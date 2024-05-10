@@ -1,232 +1,294 @@
-import React, { createElement } from "react";
-import { users, setUsers, usersType } from "../utils.py/users";
+import React, { useState } from "react";
+import { users, setUsers, usersType, updateUsersObj } from "../utils.py/users";
 import { PROFILE_ADMIN } from "../constants/routes";
+import { Toast as bToast } from "bootstrap";
+import Toast from "./Toast";
 import Row from "./Row";
+import useToast from "../utils.py/useToast";
+type ProfileAdminPageProps = {
+  profileObj: usersType;
+  i: string;
+};
 
-// type ProfileAdminPageProps = {
-//   [key: string]: string;
-// };
-
-export default function ProfileAdminPage(profileObj: usersType) {
+export default function ProfileAdminPage({
+  profileObj,
+  i,
+}: ProfileAdminPageProps) {
   console.log("ProfileObj ", profileObj);
   console.log("ProfileObj type", typeof profileObj);
 
+  const [firstName, setFirstName] = useState(profileObj.firstName);
+  const [fullName, setFullName] = useState(profileObj.fullName);
+  const [username, setUsername] = useState(profileObj.username);
+  const [email, setEmail] = useState(profileObj.email);
+  const [surname, setSurname] = useState(profileObj.surname);
+  const [phoneNumber, setPhoneNumber] = useState(profileObj.phoneNumber);
+  const [address1, setAddress1] = useState(profileObj.address1);
+  const [address2, setAddress2] = useState(profileObj.address2);
+  const [postcode, setPostcode] = useState(profileObj.postcode);
+  const [area, setArea] = useState(profileObj.area);
+  const [education, setEducation] = useState(profileObj.education);
+  const [country, setCountry] = useState(profileObj.country);
+  const [state, setState] = useState(profileObj.state);
+  const [region, setRegion] = useState(profileObj.region);
+  const [bio, setBio] = useState(profileObj.bio);
+  const [avatarUrl, setAvatarUrl] = useState(profileObj.avatarUrl);
+
+  const { toastRef, showToast, hideToast } = useToast();
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const profileObjCopy = { ...profileObj };
+    const profileObjCopy = {
+      firstName,
+      fullName,
+      username,
+      email,
+      surname,
+      phoneNumber,
+      address1,
+      address2,
+      postcode,
+      area,
+      education,
+      country,
+      state,
+      region,
+      bio,
+      avatarUrl,
+    };
 
     try {
-      profileObjCopy.fullName =
-        event.target.name.value + " " + event.target.surname.value;
-      profileObjCopy.username = event.target.username.value;
-      profileObjCopy.email = event.target.email.value;
-      profileObjCopy.name = event.target.name.value;
-      profileObjCopy.surname = event.target.surname.value;
-      profileObjCopy.phone_number = event.target.phone_number.value;
-      profileObjCopy.address1 = event.target.address1.value;
-      profileObjCopy.address2 = event.target.address2.value;
-      profileObjCopy.postcode = event.target.postcode.value;
-      profileObjCopy.area = event.target.area.value;
-      profileObjCopy.education = event.target.education.value;
-      profileObjCopy.country = event.target.country.value;
-      profileObjCopy.state = event.target.state.value;
-      profileObjCopy.region = event.target.region.value;
-      profileObjCopy.bio = event.target.bio.value;
-      profileObjCopy.avatarUrl = event.target.avatarUrl.value;
-
-      setUsers([...users, profileObjCopy]);
+      setFullName(
+        event.target.firstName.value + " " + event.target.surname.value
+      );
+      updateUsersObj(i, profileObjCopy);
     } catch (error) {
+      console.log(error);
       var p = document.createElement("p");
       p.innerHTML = `Error: Enter valid data to each of fields!`;
-      document.getElementById("submitButton")?.appendChild(p);
+      p.classList.add("text-danger");
+      document.getElementById("submitButtonDiv")?.appendChild(p);
     }
   };
 
   return (
     <div className="container rounded bg-white mt-5 mb-5">
       <Row>
-        <div className="col-md-3 border-right">
+        <div className="col-md-2 border-right mx-3 ms-0">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <img
               className="rounded-circle mt-5"
               width="150px"
               alt="profile img"
-              src={profileObj.avatarUrl}
+              src={avatarUrl}
             />
-            <span className="font-weight-bold">{profileObj.fullName}</span>
-            <span className="text-black-50">{profileObj.email}</span>
+            <span className="font-weight-bold">{fullName}</span>
+            <span className="text-black-50">{email}</span>
             <span> </span>
           </div>
         </div>
-        <form method="POST" action={PROFILE_ADMIN} onSubmit={handleSubmit}>
-          <div className="col-md-5 border-right">
-            <div className="p-3 py-5">
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <h4 className="text-right">Profile Settings</h4>
-              </div>
-              <div className="row mt-2">
-                <div className="col-md-6">
-                  <label className="labels">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    className="form-control"
-                    placeholder="first name"
-                    value={profileObj.name}
-                  />
+        <form
+          method="POST"
+          action={PROFILE_ADMIN}
+          onSubmit={handleSubmit}
+          className="col-md-9"
+        >
+          <Row>
+            <div className="col-md-8 border-right">
+              <div className="p-3 py-5">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h4 className="text-right">Profile Settings</h4>
                 </div>
-                <div className="col-md-6">
-                  <label className="labels">Surname</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={profileObj.surname}
-                    name="surname"
-                    placeholder="surname"
-                  />
+                <div className="row mt-2">
+                  <div className="col-md-6">
+                    <label className="labels">Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      className="form-control"
+                      placeholder="first name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="labels">Surname</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="surname"
+                      placeholder="surname"
+                      value={surname}
+                      onChange={(e) => setSurname(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="labels">Username</label>
+                    <input
+                      type="text"
+                      name="username"
+                      className="form-control"
+                      placeholder="username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                  </div>
                 </div>
-                <div className="col-md-6">
-                  <label className="labels">Username</label>
-                  <input
-                    type="text"
-                    name="username"
-                    className="form-control"
-                    placeholder="username"
-                    value={profileObj.username}
-                  />
+                <div className="row mt-3">
+                  <div className="col-md-12">
+                    <label className="labels">Mobile Number</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="phoneNumber"
+                      placeholder="enter phone number"
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">Address Line 1</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="address1"
+                      placeholder="enter address line 1"
+                      value={address1}
+                      onChange={(e) => setAddress1(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">Address Line 2</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="address2"
+                      placeholder="enter address line 2"
+                      value={address2}
+                      onChange={(e) => setAddress2(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">Postcode</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="postcode"
+                      placeholder="enter address line 2"
+                      value={postcode}
+                      onChange={(e) => setPostcode(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">State</label>
+                    <input
+                      type="text"
+                      name="state"
+                      className="form-control"
+                      placeholder="state"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">Area</label>
+                    <input
+                      type="text"
+                      name="area"
+                      className="form-control"
+                      placeholder="area"
+                      value={area}
+                      onChange={(e) => setArea(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">Email</label>
+                    <input
+                      type="text"
+                      name="email"
+                      className="form-control"
+                      placeholder="enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels">Education</label>
+                    <input
+                      type="text"
+                      name="education"
+                      className="form-control"
+                      placeholder="education"
+                      value={education}
+                      onChange={(e) => setEducation(e.target.value)}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-md-12">
-                  <label className="labels">Mobile Number</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="phone_number"
-                    placeholder="enter phone number"
-                    value={profileObj.phone_number}
-                  />
+                <div className="row mt-3">
+                  <div className="col-md-6">
+                    <label className="labels">Country</label>
+                    <input
+                      type="text"
+                      name="country"
+                      className="form-control"
+                      placeholder="country"
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="labels">State/Region</label>
+                    <input
+                      type="text"
+                      name="region"
+                      className="form-control"
+                      placeholder="region"
+                      value={region}
+                      onChange={(e) => setRegion(e.target.value)}
+                    />
+                  </div>
                 </div>
-                <div className="col-md-12">
-                  <label className="labels">Address Line 1</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="address1"
-                    placeholder="enter address line 1"
-                    value={profileObj.address1}
-                  />
+                <div id="submitButtonDiv" className="mt-5 text-center">
+                  <Toast
+                    title="Edit profile"
+                    message="Profile edited successfully!"
+                  >
+                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
+                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+                  </Toast>
+                  <button
+                    id="submitButton"
+                    className="btn btn-primary"
+                    type="submit"
+                    onClick={showToast}
+                  >
+                    Save Profile
+                  </button>
                 </div>
-                <div className="col-md-12">
-                  <label className="labels">Address Line 2</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="address2"
-                    placeholder="enter address line 2"
-                    value={profileObj.address2}
-                  />
-                </div>
-                <div className="col-md-12">
-                  <label className="labels">Postcode</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="postcode"
-                    placeholder="enter address line 2"
-                    value={profileObj.postcode}
-                  />
-                </div>
-                <div className="col-md-12">
-                  <label className="labels">State</label>
-                  <input
-                    type="text"
-                    name="state"
-                    className="form-control"
-                    placeholder="state"
-                    value={profileObj.state}
-                  />
-                </div>
-                <div className="col-md-12">
-                  <label className="labels">Area</label>
-                  <input
-                    type="text"
-                    name="area"
-                    className="form-control"
-                    placeholder="area"
-                    value={profileObj.area}
-                  />
-                </div>
-                <div className="col-md-12">
-                  <label className="labels">Email</label>
-                  <input
-                    type="text"
-                    name="email"
-                    className="form-control"
-                    placeholder="enter email"
-                    value={profileObj.email}
-                  />
-                </div>
-                <div className="col-md-12">
-                  <label className="labels">Education</label>
-                  <input
-                    type="text"
-                    name="education"
-                    className="form-control"
-                    placeholder="education"
-                    value={profileObj.education}
-                  />
-                </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-md-6">
-                  <label className="labels">Country</label>
-                  <input
-                    type="text"
-                    name="country"
-                    className="form-control"
-                    placeholder="country"
-                    value={profileObj.country}
-                  />
-                </div>
-                <div className="col-md-6">
-                  <label className="labels">State/Region</label>
-                  <input
-                    type="text"
-                    name="region"
-                    className="form-control"
-                    value={profileObj.region}
-                    placeholder="region"
-                  />
-                </div>
-              </div>
-              <div id="submitButton" className="mt-5 text-center">
-                <button className="btn btn-primary" type="submit">
-                  Save Profile
-                </button>
               </div>
             </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-3 py-5">
-              {/* <div className="d-flex justify-content-between align-items-center">
+            <div className="col-md-4">
+              <div className="p-3 py-5">
+                {/* <div className="d-flex justify-content-between align-items-center">
               <span>Edit Experience</span>
               <span className="btn btn-secondary border px-3 p-1">
               &nbsp;Experience
               </span>
             </div> */}
-              <div className="col-md-12">
-                <label className="">Bio</label>
-                <input
-                  type="text"
-                  name="bio"
-                  className="form-control"
-                  placeholder="additional details"
-                  value={profileObj.bio}
-                />
+                <div className="col-md-12">
+                  <label className="">Bio</label>
+                  <input
+                    type="text"
+                    name="bio"
+                    className="form-control"
+                    placeholder="additional details"
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </Row>
         </form>
       </Row>
     </div>

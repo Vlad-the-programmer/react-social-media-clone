@@ -25,10 +25,16 @@ import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
 import Chat from "./components/Chat";
 import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
-import { users } from "./utils.py/users";
-
+import { getUsers, users } from "./utils.py/users";
+import { useEffect } from "react";
+import Toast from "./components/Toast.tsx";
 function App() {
   console.log("Users app", users);
+  useEffect(() => {
+    document.title = "Sign Up - Instagram";
+    getUsers();
+  }, [users]);
+
   return (
     <div className="App">
       {/* <link
@@ -37,6 +43,10 @@ function App() {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous"
       /> */}
+      <Toast title="Edit profile" message="Profile edited successfully!">
+        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
+        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+      </Toast>
       <Router>
         <Routes>
           <Route element={<Layout />}>
@@ -230,7 +240,7 @@ function App() {
             />
             <Route
               path={PROFILE_ADMIN}
-              element={<ProfileAdminPage profileObj={users[0]} />}
+              element={<ProfileAdminPage profileObj={getUsers()[0]} i="0" />}
             />
             <Route
               path={CHAT}
@@ -304,12 +314,6 @@ function App() {
           </Route>
         </Routes>
       </Router>
-
-      {/* <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"
-      ></script> */}
     </div>
   );
 }
