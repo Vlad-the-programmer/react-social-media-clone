@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { SIGN_UP } from "../constants/routes";
 import { Link, useHistory } from "react-router-dom";
-import { userExists, checkPassword } from "../utils.py/signUp";
+import { userExists, checkPassword } from "../utils/signUp";
 import Icon from "./Icon.tsx";
-import { data } from "../utils.py/signUp";
-import { users, setUsers } from "../utils.py/users";
+import { data } from "../utils/signUp";
+import { users, setUsers } from "../utils/users";
 
 function Login() {
   //   const history = useHistory();

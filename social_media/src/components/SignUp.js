@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { LOGIN } from "../constants/routes";
-import { userExists, usernameExists } from "../utils.py/signUp";
-import { data } from "../utils.py/signUp";
-import { users, setUsers } from "../utils.py/users";
+import { userExists, usernameExists } from "../utils/signUp";
+import { data } from "../utils/signUp";
+import { users, setUsers } from "../utils/users";
 import Toast from "./Toast";
 import Icon from "./Icon.tsx";
+import useToast from "../utils/useToast";
 
 function SignUp() {
   //   const history = useHistory();
   const [usersData, setUserData] = useState(() => {
     return users.length > 0 ? users : data;
   });
+
+  const { showToast } = useToast();
 
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
@@ -61,6 +64,10 @@ function SignUp() {
 
   return (
     <div className="container flex mx-auto h-screen">
+      <Toast title="SignUp" message="Signup successful!">
+        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
+        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+      </Toast>
       <div className="d-flex flex-row align-items-center gx-6">
         <div className="d-flex  flex-column mx-5">
           <img
@@ -117,6 +124,7 @@ function SignUp() {
                 type="submit"
                 className={`bg-success text-white rounded h-8 font-bold px-3 ms-5
             ${isInvalid && "opacity-50"}`}
+                onClick={showToast}
               >
                 Sign Up
               </button>

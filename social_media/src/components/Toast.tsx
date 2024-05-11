@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Icon from "./Icon";
-import useToast from "../utils.py/useToast";
+import useToast from "../utils/useToast";
 
 type ToastPropsType = {
   title: string;

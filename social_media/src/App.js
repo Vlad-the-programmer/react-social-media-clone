@@ -25,9 +25,9 @@ import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
 import Chat from "./components/Chat";
 import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
-import { getUsers, users } from "./utils.py/users";
+import { getUsers, users } from "./utils/users";
 import { useEffect } from "react";
-import Toast from "./components/Toast.tsx";
+
 function App() {
   console.log("Users app", users);
   useEffect(() => {
@@ -37,16 +37,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous"
-      /> */}
-      <Toast title="Edit profile" message="Profile edited successfully!">
-        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
-        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-      </Toast>
       <Router>
         <Routes>
           <Route element={<Layout />}>
@@ -314,6 +304,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      <script src="js/app.js"></script>
     </div>
   );
 }
