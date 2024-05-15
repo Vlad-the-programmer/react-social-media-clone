@@ -1,29 +1,30 @@
 import { useState, useEffect } from "react";
-import { SIGN_UP } from "../constants/routes";
-import { Link, useHistory } from "react-router-dom";
+import { HOME_URL, SIGN_UP } from "../constants/routes";
+import { Link, useNavigate } from "react-router-dom";
 import { userExists, checkPassword } from "../utils/signUp";
 import Icon from "./Icon.tsx";
 import { data } from "../utils/signUp";
-import { users, setUsers } from "../utils/users";
+import { getUsers, users } from "../utils/users";
 
 function Login() {
   //   const history = useHistory();
-  const [usersData, setUserData] = useState(() => {
-    return users.length > 0 ? users : data;
-  });
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState("");
   const isInvalid = password === "" || emailAddress === "";
 
+  const navigate = useNavigate();
+  const successRedirect = () => {
+    return navigate(HOME_URL);
+  };
   const handleLogin = async (event) => {
     event.preventDefault();
 
     if (userExists(emailAddress) && checkPassword(password)) {
-      setLoggedIn(true);
-      alert("Logged in!");
+      // setLoggedIn(true);
       //   history.push(ROUTES.DASHBOARD);
+      successRedirect();
     } else {
       setEmailAddress("");
       setPassword("");
@@ -33,8 +34,8 @@ function Login() {
 
   useEffect(() => {
     document.title = "Login - Instagram";
-    localStorage.setItem("users", JSON.stringify(usersData));
-  }, [usersData]);
+    getUsers();
+  }, []);
 
   return (
     <div className="container flex mw-auto h-screen">
@@ -55,7 +56,7 @@ function Login() {
               </Icon>
             </h1>
 
-            {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
+            {error && <p className="mb-4 text-xs text-danger">{error}</p>}
 
             <form onSubmit={handleLogin} method="POST" className="mx-3">
               <input

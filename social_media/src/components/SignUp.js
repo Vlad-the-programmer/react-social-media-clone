@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { LOGIN } from "../constants/routes";
+import { Link, useNavigate } from "react-router-dom";
+import { HOME_URL, LOGIN } from "../constants/routes";
 import { userExists, usernameExists } from "../utils/signUp";
 import { data } from "../utils/signUp";
 import { users, setUsers } from "../utils/users";
-import Toast from "./Toast";
 import Icon from "./Icon.tsx";
-import useToast from "../utils/useToast";
+import Spinner from "./Spinner";
 
 function SignUp() {
-  //   const history = useHistory();
   const [usersData, setUserData] = useState(() => {
     return users.length > 0 ? users : data;
   });
 
-  const { showToast } = useToast();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
@@ -23,12 +21,14 @@ function SignUp() {
 
   const [error, setError] = useState("");
   const isInvalid = password === "" || emailAddress === "";
+  const [loading, setLoading] = useState(false);
 
   const handleSignUp = async (event) => {
     event.preventDefault();
 
     if (!usernameExists(username)) {
       if (!userExists(emailAddress)) {
+        setLoading(true);
         setUserData((previousUsersData) => [
           ...previousUsersData,
           {
@@ -38,18 +38,15 @@ function SignUp() {
             password: password,
           },
         ]);
-        // return (
-        //   <Toast title="SignUp" message="Signup successful!">
-        //     <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
-        //     <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-        //   </Toast>
-        // );
-        // history.push(ROUTES.DASHBOARD);
+        await setTimeout(setUsers(usersData, true), 30000);
+        setLoading(false);
+        navigate(HOME_URL);
       } else {
         setFullName("");
         setEmailAddress("");
         setPassword("");
         setError("User Exists!");
+        setLoading(false);
       }
     } else {
       setUsername("");
@@ -59,15 +56,11 @@ function SignUp() {
 
   useEffect(() => {
     document.title = "Sign Up - Instagram";
-    setUsers(usersData, true);
-  }, [usersData]);
+    // setUsers(usersData, true);
+  }, []);
 
   return (
     <div className="container flex mx-auto h-screen">
-      <Toast title="SignUp" message="Signup successful!">
-        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
-        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-      </Toast>
       <div className="d-flex flex-row align-items-center gx-6">
         <div className="d-flex  flex-column mx-5">
           <img
@@ -83,7 +76,7 @@ function SignUp() {
               </Icon>
             </h1>
 
-            {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
+            {error && <p className="mb-4 text-xs text-danger">{error}</p>}
 
             <form onSubmit={handleSignUp} method="POST">
               <input
@@ -119,15 +112,18 @@ function SignUp() {
                 value={password}
               />
               <hr />
+
               <button
                 disabled={isInvalid}
                 type="submit"
                 className={`bg-success text-white rounded h-8 font-bold px-3 ms-5
             ${isInvalid && "opacity-50"}`}
-                onClick={showToast}
+                // onClick={() => setTimeout(handleSignUp, 20000)}
               >
                 Sign Up
               </button>
+
+              {loading && <Spinner />}
             </form>
           </div>
           <div className="flex justify-content-center align-items-center flex-column w-full bg-white p-4 rounded border border-gray-primary">

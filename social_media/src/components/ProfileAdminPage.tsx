@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { users, setUsers, usersType, updateUsersObj } from "../utils/users";
-import { PROFILE_ADMIN } from "../constants/routes";
-import Toast from "./Toast";
+import { usersType, updateUsersObj } from "../utils/users";
+import { PROFILE_ADMIN, SUCCESS_REDIRECT_PAGE } from "../constants/routes";
 import Row from "./Row";
-import useToast from "../utils/useToast";
 import $ from "jquery";
+import { useNavigate } from "react-router-dom";
 
 type ProfileAdminPageProps = {
   profileObj: usersType;
@@ -34,7 +33,7 @@ export default function ProfileAdminPage({
   const [bio, setBio] = useState(profileObj.bio);
   const [avatarUrl, setAvatarUrl] = useState(profileObj.avatarUrl);
 
-  const { showToast } = useToast();
+  const navigate = useNavigate();
   console.log("Avatarurl", avatarUrl);
 
   const onImageChange = (event: any) => {
@@ -97,10 +96,6 @@ export default function ProfileAdminPage({
   };
   return (
     <>
-      <Toast title="Edit profile" message="Profile edited successfully!">
-        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
-        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-      </Toast>
       <div className="container rounded bg-white mt-5 mb-5">
         <Row>
           <div className="col-md-3 border-right mx-3 ms-0">
@@ -320,7 +315,7 @@ export default function ProfileAdminPage({
                       id="submitButton"
                       className="btn btn-primary"
                       type="submit"
-                      onClick={showToast}
+                      onClick={() => navigate(SUCCESS_REDIRECT_PAGE)}
                     >
                       Save Profile
                     </button>

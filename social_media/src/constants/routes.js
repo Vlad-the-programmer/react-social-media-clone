@@ -1,4 +1,5 @@
 export const GROUPS = "/groups/";
+export const HOME_URL = "/";
 export const FRIENDS = "/friends/";
 export const PEOPLE = "/people/";
 export const BOOKMARKS = "/bookmarks/";
@@ -12,3 +13,4 @@ export const PROFILE = "/p";
 export const PROFILE_ADMIN = "/p/admin";
 
 export const NOT_FOUND = "/not-found";
+export const SUCCESS_REDIRECT_PAGE = "/success-page";

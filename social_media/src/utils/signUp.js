@@ -10,7 +10,7 @@ export const data = [
 ];
 
 export function usernameExists(username) {
-  return users.filter((v, i) => v.username === username).length > 1;
+  return users.filter((v, i) => v.username === username).length > 0;
 }
 
 export function userExists(email) {

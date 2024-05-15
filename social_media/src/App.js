@@ -12,6 +12,7 @@ import {
   CHAT,
   PROFILE_ADMIN,
   BOOKMARKS,
+  SUCCESS_REDIRECT_PAGE,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -27,6 +28,7 @@ import Chat from "./components/Chat";
 import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
 import { getUsers, users } from "./utils/users";
 import { useEffect } from "react";
+import SuccessRedirectPage from "./SuccessRedirectPage";
 
 function App() {
   console.log("Users app", users);
@@ -37,6 +39,10 @@ function App() {
 
   return (
     <div className="App">
+      <link
+        href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap"
+        rel="stylesheet"
+      />
       <Router>
         <Routes>
           <Route element={<Layout />}>
@@ -301,10 +307,14 @@ function App() {
           <Route element={<LayoutNotLoggedIn />}>
             <Route path={LOGIN} element={<Login />} />
             <Route path={SIGN_UP} element={<SignUp />} />
+            <Route
+              path={SUCCESS_REDIRECT_PAGE}
+              element={<SuccessRedirectPage message="" />}
+            />
           </Route>
         </Routes>
       </Router>
-      <script src="js/app.js"></script>
+      {/* <script src="js/app.js"></script> */}
     </div>
   );
 }

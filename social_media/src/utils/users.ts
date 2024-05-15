@@ -10,7 +10,7 @@ export type usersType = {
 
 export function setUsers(users: Array<usersType>, signUp = false) {
     if (signUp) {
-        var v = users[-1]
+        var v = users[users.length - 1]
         v.avatarUrl =
             "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg";
 
@@ -27,7 +27,7 @@ export function setUsers(users: Array<usersType>, signUp = false) {
         v.region = " "
         v.bio = " "
     }
-    return localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("users", JSON.stringify(users));
 }
 
 export function getUsers() {
