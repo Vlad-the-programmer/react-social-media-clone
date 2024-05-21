@@ -38,9 +38,12 @@ function SignUp() {
             password: password,
           },
         ]);
-        await setTimeout(setUsers(usersData, true), 30000);
-        setLoading(false);
-        navigate(HOME_URL);
+        console.log(usersData);
+        setUsers(usersData, true);
+        setTimeout(() => {
+          setLoading(false);
+          navigate(HOME_URL);
+        }, 5000);
       } else {
         setFullName("");
         setEmailAddress("");
@@ -118,7 +121,6 @@ function SignUp() {
                 type="submit"
                 className={`bg-success text-white rounded h-8 font-bold px-3 ms-5
             ${isInvalid && "opacity-50"}`}
-                // onClick={() => setTimeout(handleSignUp, 20000)}
               >
                 Sign Up
               </button>

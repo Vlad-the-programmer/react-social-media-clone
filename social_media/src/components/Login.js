@@ -15,16 +15,13 @@ function Login() {
   const isInvalid = password === "" || emailAddress === "";
 
   const navigate = useNavigate();
-  const successRedirect = () => {
-    return navigate(HOME_URL);
-  };
   const handleLogin = async (event) => {
     event.preventDefault();
 
     if (userExists(emailAddress) && checkPassword(password)) {
       // setLoggedIn(true);
       //   history.push(ROUTES.DASHBOARD);
-      successRedirect();
+      navigate(HOME_URL);
     } else {
       setEmailAddress("");
       setPassword("");

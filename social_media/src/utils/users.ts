@@ -1,8 +1,9 @@
 
 
-export const users: Array<usersType> = Array.from(JSON.parse(localStorage.getItem("users") || "[{}]"));
+export const users: Array<usersType> = Array.from(getUsers());
 console.log("Users ", users);
 console.log("Users type", typeof users);
+
 
 export type usersType = {
     [key: string]: string;
@@ -28,10 +29,11 @@ export function setUsers(users: Array<usersType>, signUp = false) {
         v.bio = " "
     }
     localStorage.setItem("users", JSON.stringify(users));
+    getUsers();
 }
 
 export function getUsers() {
-    return users;
+    return JSON.parse(localStorage.getItem("users") || "[{}]");
 }
 
 export function updateUsersObj(index: string, newObj: usersType) {

@@ -38,24 +38,11 @@ export default function ProfileAdminPage({
 
   const onImageChange = (event: any) => {
     if (event.target.files && event.target.files[0]) {
-      var fileName = event.target.files[0].name;
+      // var fileName = event.target.files[0].name;
       var file = event.target.files[0];
       console.log("File", file);
       setAvatarUrl(URL.createObjectURL(event.target.files[0]));
       console.log("AvatarLink ", avatarUrl);
-
-      // $.ajax({
-      //   type: "POST",
-      //   url: "./src/utils/script.py",
-      //   data: {
-      //     param: {
-      //       fileToCopyPath: file,
-      //       dest: process.env.PUBLIC_URL + `/media/`,
-      //     },
-      //   },
-      // }).done(function (o) {
-      //   // do something
-      // });
     }
   };
 
@@ -116,34 +103,12 @@ export default function ProfileAdminPage({
                 />
                 <button
                   className="btn btn-light"
-                  // style={{ display: "none" }}
                   onClick={() => document.getElementById("inpFile")?.click()}
                 >
                   Select image
                 </button>
                 <img id="target" />
               </div>
-              {/* <main>
-                <div className="dropzone">
-                  <img
-                    src={process.env.PUBLIC_URL + "/media/upload.png"}
-                    alt="upload"
-                    width="100px"
-                  />
-
-                  <input
-                    type="file"
-                    className="files"
-                    id="images"
-                    accept="image/png, image/jpeg"
-                    // multiple
-                  />
-                  <label htmlFor="images">Choose multiple images</label>
-
-                  <h3>or drag & drop your PNG or JPEG files here</h3>
-                </div>
-                <div className="image-list"></div>
-              </main> */}
               <span className="font-weight-bold">{fullName}</span>
               <span className="text-black-50">{email}</span>
               <span> </span>

@@ -26,7 +26,7 @@ import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
 import Chat from "./components/Chat";
 import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
-import { getUsers, users } from "./utils/users";
+import { getUsers, setUsers, users } from "./utils/users";
 import { useEffect } from "react";
 import SuccessRedirectPage from "./SuccessRedirectPage";
 
@@ -34,6 +34,7 @@ function App() {
   console.log("Users app", users);
   useEffect(() => {
     document.title = "Sign Up - Instagram";
+    // setUsers(users);
     getUsers();
   }, [users]);
 
