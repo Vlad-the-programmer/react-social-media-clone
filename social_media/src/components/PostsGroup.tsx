@@ -9,7 +9,7 @@ type PostsGroup = {
   buttonName: string;
 };
 
-function PostsGroup(props: PostsGroup) {
+export default function PostsGroup(props: PostsGroup) {
   return (
     <>
       {props.imageLinks.map((v, i) => {
@@ -30,4 +30,4 @@ function PostsGroup(props: PostsGroup) {
   );
 }
 
-export default PostsGroup;
+
