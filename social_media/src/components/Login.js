@@ -3,7 +3,6 @@ import { HOME_URL, SIGN_UP } from "../constants/routes";
 import { Link, useNavigate } from "react-router-dom";
 import { userExists, checkPassword } from "../utils/signUp";
 import Icon from "./Icon.tsx";
-import { data } from "../utils/signUp";
 import { getUsers, users } from "../utils/users";
 
 function Login() {

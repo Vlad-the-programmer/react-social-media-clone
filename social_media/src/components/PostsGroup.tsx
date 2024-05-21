@@ -12,22 +12,22 @@ type PostsGroup = {
 export default function PostsGroup(props: PostsGroup) {
   return (
     <>
-      {props.imageLinks.map((v, i) => {
-        return (
-          <PostCard
-            key={i}
-            buttonLink={props.buttonLink}
-            imageLink={props.imageLinks[i]}
-            title={props.titles[i]}
-            columnSize={sizeEnum.six}
-            buttonName={props.buttonName}
-          >
-            {props.cardTexts[i]}
-          </PostCard>
-        );
-      })}
+      <div className="row overflow-y-auto flex-nowrap">
+        {props.imageLinks.map((v, i) => {
+          return (
+            <PostCard
+              key={i}
+              buttonLink={props.buttonLink}
+              imageLink={props.imageLinks[i]}
+              title={props.titles[i]}
+              columnSize={sizeEnum.six}
+              buttonName={props.buttonName}
+            >
+              {props.cardTexts[i]}
+            </PostCard>
+          );
+        })}
+      </div>
     </>
   );
 }
-
-

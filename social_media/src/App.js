@@ -33,7 +33,7 @@ import SuccessRedirectPage from "./SuccessRedirectPage";
 function App() {
   console.log("Users app", users);
   useEffect(() => {
-    document.title = "Sign Up - Instagram";
+    document.title = "Home page";
     // setUsers(users);
     getUsers();
   }, [users]);
@@ -53,8 +53,34 @@ function App() {
               element={
                 <Column
                   smallSize={sizeEnum.eleven}
-                  classNames={["card-group align-items-center mt-4"]}
+                  classNames={["card-group align-items-center mt-5"]}
                 >
+                  <h4>People you may know</h4>
+                  <div className="row overflow-y-auto flex-nowrap">
+                    <PeopleCardsGroup
+                      imageLinks={[
+                        "https://picsum.photos/300/200",
+                        "https://picsum.photos/300/200",
+                        "https://picsum.photos/300/200",
+                        "https://picsum.photos/300/200",
+                      ]}
+                      titles={[
+                        "Someone 1",
+                        "Someone 2",
+                        "Someone 3",
+                        "Someone 4",
+                      ]}
+                      cardsColumnSize={sizeEnum.four}
+                      buttonLink="/"
+                      cardTexts={[
+                        "Someone 1",
+                        "Someone 2",
+                        "Someone 3",
+                        "Someone 4",
+                      ]}
+                      buttonNames={["Follow", "UnFollow"]}
+                    />
+                  </div>
                   <PostsGroup
                     imageLinks={[
                       "https://picsum.photos/300/200",
@@ -64,7 +90,6 @@ function App() {
                     ]}
                     titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
                     buttonLink="/"
-                    columnSize={sizeEnum.six}
                     cardTexts={[
                       "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
                       "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
@@ -94,6 +119,7 @@ function App() {
                     buttonLink="/"
                     columnSize={sizeEnum.six}
                     cardTexts={["Group 1", "Group 2", "Group 3", "Group 4"]}
+                    groupDescription="Private group 177.0K members"
                     buttonNames={["Follow", "UnFollow"]}
                   />
                 </Column>
@@ -115,7 +141,6 @@ function App() {
                     ]}
                     titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
                     buttonLink="/"
-                    columnSize={sizeEnum.six}
                     cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
                     buttonNames={["Follow", "UnFollow"]}
                   />
@@ -143,7 +168,7 @@ function App() {
                       "Someone 4",
                     ]}
                     buttonLink="/"
-                    columnSize={sizeEnum.six}
+                    cardsColumnSize={sizeEnum.four}
                     cardTexts={[
                       "Someone 1",
                       "Someone 2",
@@ -171,7 +196,6 @@ function App() {
                     ]}
                     titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
                     buttonLink="/"
-                    columnSize={sizeEnum.six}
                     cardTexts={[
                       "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
                       "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
@@ -199,7 +223,6 @@ function App() {
                     ]}
                     titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
                     buttonLink="/"
-                    columnSize={sizeEnum.six}
                     cardTexts={[
                       "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
                       "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
@@ -315,7 +338,6 @@ function App() {
           </Route>
         </Routes>
       </Router>
-      {/* <script src="js/app.js"></script> */}
     </div>
   );
 }

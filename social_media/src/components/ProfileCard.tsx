@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from "react";
 import Column from "./Column";
 import sizeEnum from "./SizeEnum";
 import { PROFILE } from "../constants/routes";
+import UserAvatar from "./UserAvatar";
 
 type ProfileCardProps = {
   children: ReactNode;
@@ -27,10 +28,15 @@ export default function ProfileCard(props: ProfileCardProps) {
   const [buttonText, setButtonText] = useState(props.buttonNames[0]);
   console.log(buttonText);
   return (
-    <Column smallSize={props.columnSize} classNames={["my-2"]}>
-      <div className="card">
+    <Column smallSize={props.columnSize} classNames={["my-2 py-1"]}>
+      <div className="card align-items-center">
         <a href={PROFILE}>
-          <img src={props.imageLink} className="card-img-top" alt="..." />
+          <UserAvatar
+            avatarUrl={props.imageLink}
+            width="190px"
+            height="160px"
+            classNames="rounded-pill"
+          />
         </a>
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
@@ -38,7 +44,6 @@ export default function ProfileCard(props: ProfileCardProps) {
           <hr />
           <div className="ms-4">
             <a
-              // href={props.buttonLink}
               onClick={changeButtonBackground}
               className={`btn ${buttonBackground} ms-5`}
             >

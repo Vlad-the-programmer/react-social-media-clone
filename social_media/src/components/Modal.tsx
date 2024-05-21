@@ -22,6 +22,7 @@ export default function Modal(props: ModalProps) {
               {props.title}
             </h5>
             <button
+              id="modalTriggerBtn"
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"

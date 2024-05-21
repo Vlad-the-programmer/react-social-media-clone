@@ -7,6 +7,7 @@ type GroupsCardsGroup = {
   titles: Array<string>;
   cardTexts: Array<string>;
   buttonNames: Array<string>;
+  groupDescription: string;
 };
 
 function GroupsCardsGroup(props: GroupsCardsGroup) {
@@ -21,6 +22,7 @@ function GroupsCardsGroup(props: GroupsCardsGroup) {
             title={props.titles[i]}
             columnSize={sizeEnum.six}
             buttonNames={props.buttonNames}
+            groupDescription={props.groupDescription}
           >
             {props.cardTexts[i]}
           </Card>

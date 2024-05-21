@@ -52,7 +52,7 @@ function Column(props: ColumnProps) {
         translateSizeToSmallClass(props.smallSize) +
         " " +
         getClassesNamesString(props.classNames) +
-        " px-3"
+        " px-2"
       }
     >
       {props.children}

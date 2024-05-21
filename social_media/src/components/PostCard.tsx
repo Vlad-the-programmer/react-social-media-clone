@@ -4,6 +4,7 @@ import sizeEnum from "./SizeEnum";
 import Modal from "./Modal";
 import ModalLink from "./ModalLink";
 import ModalPostDetail from "./ModalPostDetail";
+import { getSlicedText } from "../utils/helpFuncs";
 
 type PostCardProps = {
   children: ReactNode;
@@ -26,14 +27,14 @@ function PostCard(props: PostCardProps) {
   const [buttonBackground, setButtonBackground] = useState("btn-primary");
 
   return (
-    <Column smallSize={props.columnSize} classNames={["my-1 mx-4"]}>
-      <div className="card">
+    <Column smallSize={props.columnSize} classNames={["my-5"]}>
+      <div className="card h-100">
         <img src={props.imageLink} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
-          {props.children}
+          {getSlicedText(props.children, 150)}
           <hr />
-          <div className="ms-4">
+          <div className="d-flex align-items-end ms-4">
             <ModalLink
               modal={
                 <Modal title={props.title} buttonName="Show All">

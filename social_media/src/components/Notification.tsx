@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import UserAvatar from "./UserAvatar";
+import { getSlicedText } from "../utils/helpFuncs";
 
 type NotificationProps = {
   dateAndTimeReceived: string;
@@ -9,15 +10,6 @@ type NotificationProps = {
 };
 
 export default function Notification(props: NotificationProps) {
-  const textLength = 35;
-  function getSlicedNotificationText(text: string) {
-    if (text.length <= 35) return text + "...";
-
-    var newText = props.text.substring(0, text.indexOf(".") + 1);
-    return newText.length <= 35
-      ? newText + ".."
-      : newText.substring(0, textLength + 1) + "...";
-  }
   return (
     <li className="p-3 border-bottom" style={{ backgroundColor: "#eee" }}>
       <div className="d-flex justify-content-between">
@@ -44,9 +36,7 @@ export default function Notification(props: NotificationProps) {
         </div>
       </div>
       <div className="pt-1">
-        <p className="small text-muted">
-          {getSlicedNotificationText(props.text)}
-        </p>
+        <p className="small text-muted">{getSlicedText(props.text, 35)}</p>
       </div>
     </li>
   );

@@ -19,7 +19,7 @@ function FriendsCardsGroup(props: FriendsCardsGroup) {
             buttonLink={props.buttonLink}
             imageLink={props.imageLinks[i]}
             title={props.titles[i]}
-            columnSize={sizeEnum.six}
+            columnSize={sizeEnum.four}
             buttonNames={props.buttonNames}
           >
             {props.cardTexts[i]}

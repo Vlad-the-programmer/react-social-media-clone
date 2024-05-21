@@ -7,6 +7,7 @@ type PeopleCardsGroup = {
   titles: Array<string>;
   cardTexts: Array<string>;
   buttonNames: Array<string>;
+  cardsColumnSize: sizeEnum;
 };
 
 function PeopleCardsGroup(props: PeopleCardsGroup) {
@@ -19,7 +20,7 @@ function PeopleCardsGroup(props: PeopleCardsGroup) {
             buttonLink={props.buttonLink}
             imageLink={props.imageLinks[i]}
             title={props.titles[i]}
-            columnSize={sizeEnum.six}
+            columnSize={props.cardsColumnSize}
             buttonNames={props.buttonNames}
           >
             {props.cardTexts[i]}
