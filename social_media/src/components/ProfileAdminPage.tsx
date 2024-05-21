@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { usersType, updateUsersObj } from "../utils/users";
 import { PROFILE_ADMIN, SUCCESS_REDIRECT_PAGE } from "../constants/routes";
 import Row from "./Row";
-import $ from "jquery";
 import { useNavigate } from "react-router-dom";
 
 type ProfileAdminPageProps = {
