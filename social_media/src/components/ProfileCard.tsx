@@ -33,6 +33,7 @@ export default function ProfileCard(props: ProfileCardProps) {
         <a href={PROFILE}>
           <UserAvatar
             avatarUrl={props.imageLink}
+            avatarLink={PROFILE}
             width="190px"
             height="160px"
             classNames="rounded-pill"

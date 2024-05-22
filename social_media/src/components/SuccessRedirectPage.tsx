@@ -1,4 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { HOME_URL } from "../constants/routes";
+import Spinner from "./Spinner";
 
 type SuccessRedirectPage = { message: string };
 export default function SuccessRedirectPage({ message }: SuccessRedirectPage) {
@@ -43,7 +46,13 @@ export default function SuccessRedirectPage({ message }: SuccessRedirectPage) {
       margin: "0",
     },
   };
-
+  const navigate = useNavigate();
+  const redirectToHomePage = () => {
+    setTimeout(() => {
+      navigate(HOME_URL);
+    }, 5000);
+    return <Spinner />;
+  };
   return (
     <div style={styles.mainDiv}>
       <div className="card" style={styles.card}>
@@ -55,6 +64,7 @@ export default function SuccessRedirectPage({ message }: SuccessRedirectPage) {
         <h1 style={styles.heading1}>Success</h1>
         <p style={styles.p}>{message}</p>
       </div>
+      {redirectToHomePage()}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import DropDown from "./DropDown";
 import DropDownItem from "./DropDownItem";
 import UserAvatar from "./UserAvatar";
+import { PROFILE } from "../constants/routes";
 
 type AvatarProps = {
   avatarLink: string;
@@ -25,6 +26,7 @@ function Avatar(props: AvatarProps) {
       >
         <UserAvatar
           avatarUrl={props.imgLink}
+          avatarLink={PROFILE}
           width={props.imgWidth}
           height={props.imgHeight}
           classNames=""

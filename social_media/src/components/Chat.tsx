@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import SideBarWithChats from "./SideBarWithChats";
 import Icon from "./Icon";
 import UserAvatar from "./UserAvatar";
+import { PROFILE } from "../constants/routes";
 
 type ChatProps = {
   senderName: string;
@@ -24,15 +25,11 @@ const renderMessages = (props: ChatProps) => {
           </p>
         </div>
         <div className="d-flex flex-row justify-content-start">
-          {/* <img
-            src={props.senderImgUrl}
-            alt="avatar 1"
-            style={{ width: "45px", height: "100%" }}
-          /> */}
           <UserAvatar
             avatarUrl={props.senderImgUrl}
-            width="45px"
-            height="100%"
+            avatarLink={PROFILE}
+            width="50px"
+            height="60px"
             classNames=""
           />
           <div>
@@ -59,8 +56,9 @@ const renderMessages = (props: ChatProps) => {
           </div>
           <UserAvatar
             avatarUrl={props.receiverImgUrl}
-            width="45px"
-            height="100%"
+            avatarLink={PROFILE}
+            width="50px"
+            height="60px"
             classNames=""
           />
         </div>

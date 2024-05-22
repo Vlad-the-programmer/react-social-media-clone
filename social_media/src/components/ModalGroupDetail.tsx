@@ -1,15 +1,16 @@
 import React, { ReactNode } from "react";
 import Column from "./Column";
 import sizeEnum from "./SizeEnum";
-import Comment from "./Comment";
 import UserAvatar from "./UserAvatar";
 import GroupPost from "./GroupPost";
+import { PROFILE } from "../constants/routes";
 
 type ModalGroupDetailProps = {
   children: ReactNode;
   imageLink: string;
   posts: Array<any>;
   groupDescription: string;
+  comments: Array<any>;
 };
 
 const renderGroupPosts = (props: ModalGroupDetailProps) => {
@@ -21,9 +22,9 @@ const renderGroupPosts = (props: ModalGroupDetailProps) => {
             <div className="card">
               <div className="card-body p-4">
                 <h4 className="mb-0">Group discussion</h4>
-                <p className="fw-light mb-4 pb-2">
+                {/* <p className="fw-light mb-4 pb-2">
                   Latest posts section by users
-                </p>
+                </p> */}
                 <div
                   className=""
                   style={{
@@ -40,11 +41,13 @@ const renderGroupPosts = (props: ModalGroupDetailProps) => {
                         dateAndTimeCreated={obj.dateAndTimeCreated}
                         title={obj.title}
                         imgLink={obj.imgLink}
+                        comments={props.comments}
                       >
                         <UserAvatar
                           avatarUrl={obj.avatarLink}
-                          width="45px"
-                          height="100%"
+                          avatarLink={PROFILE}
+                          width="50px"
+                          height="60px"
                           classNames="shadow-1-strong me-3"
                         />
                       </GroupPost>

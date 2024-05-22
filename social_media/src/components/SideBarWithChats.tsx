@@ -1,5 +1,6 @@
 import React from "react";
 import UserAvatar from "./UserAvatar";
+import { PROFILE } from "../constants/routes";
 
 type SideBarWithChatsProps = {
   chatObj: Array<any>;
@@ -28,6 +29,7 @@ export default function SideBarWithChats(props: SideBarWithChatsProps) {
                             avatarUrl={chat.avatarLink}
                             width="60px"
                             height="60px"
+                            avatarLink={PROFILE}
                             classNames="d-flex align-self-center me-3 shadow-1-strong"
                           />
                         </a>

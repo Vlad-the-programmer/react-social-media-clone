@@ -1,5 +1,9 @@
 import React, { ReactNode } from "react";
 import Icon from "./Icon";
+import { PROFILE } from "../constants/routes";
+import Comment from "./Comment";
+import UserAvatar from "./UserAvatar";
+import ToggleButton from "./ToggleButton";
 
 type GroupPostProps = {
   imgLink: string;
@@ -8,11 +12,60 @@ type GroupPostProps = {
   dateAndTimeCreated: string;
   authorUsername: string;
   children: ReactNode;
+  comments: Array<string>;
+};
+
+export const renderComments = (comments: Array<any>) => {
+  return (
+    <div className="container">
+      <div className="row d-flex justify-content-center">
+        <div className="col-md-9 col-lg-12 ps-0">
+          <div className="card">
+            <div className="card-body p-4">
+              <h4 className="mb-0">Recent comments</h4>
+              <p className="fw-light mb-4 pb-2">
+                Latest Comments section by users
+              </p>
+              <div
+                className=""
+                style={{
+                  position: "relative",
+                  height: "500px",
+                  overflow: "scroll",
+                }}
+              >
+                {comments.map((obj, i) => {
+                  return (
+                    <Comment
+                      text={obj.commentText}
+                      authorUsername={obj.authorUsername}
+                      dateAndTimeCreated={obj.dateAndTimeCreated}
+                      status={obj.status}
+                    >
+                      <UserAvatar
+                        avatarUrl={obj.avatarLink}
+                        avatarLink={PROFILE}
+                        width="50px"
+                        height="60px"
+                        classNames="shadow-1-strong me-3"
+                      />
+                    </Comment>
+                  );
+                })}
+              </div>
+            </div>
+
+            <hr className="my-0" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default function GroupPost(props: GroupPostProps) {
   return (
-    <div className="d-flex flex-start">
+    <div className="container d-flex flex-start">
       {props.children}
       <div>
         <h6 className="fw-bold mb-1 my-2">{props.authorUsername}</h6>
@@ -33,6 +86,13 @@ export default function GroupPost(props: GroupPostProps) {
           </a>
         </div>
         <p className="mb-0">{props.postText}</p>
+        <hr />
+        <div>
+          <img src={props.imgLink} width="98%" alt="post image" />
+          <ToggleButton buttonName="Read comments">
+            {renderComments(props.comments)}
+          </ToggleButton>
+        </div>
       </div>
     </div>
   );

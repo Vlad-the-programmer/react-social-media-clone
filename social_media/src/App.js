@@ -28,7 +28,7 @@ import Chat from "./components/Chat";
 import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
 import { getUsers, setUsers, users } from "./utils/users";
 import { useEffect } from "react";
-import SuccessRedirectPage from "./SuccessRedirectPage";
+import SuccessRedirectPage from "./components/SuccessRedirectPage";
 
 function App() {
   console.log("Users app", users);
@@ -120,7 +120,7 @@ function App() {
                     columnSize={sizeEnum.six}
                     cardTexts={["Group 1", "Group 2", "Group 3", "Group 4"]}
                     groupDescription="Private group 177.0K members"
-                    buttonNames={["Follow", "UnFollow"]}
+                    buttonNames={["Join", "Leave"]}
                   />
                 </Column>
               }

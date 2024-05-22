@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import UserAvatar from "./UserAvatar";
 import { getSlicedText } from "../utils/helpFuncs";
+import { PROFILE } from "../constants/routes";
 
 type NotificationProps = {
   dateAndTimeReceived: string;
@@ -17,6 +18,7 @@ export default function Notification(props: NotificationProps) {
           <a href="#">
             <UserAvatar
               avatarUrl={props.avatarLink}
+              avatarLink={PROFILE}
               width="45px"
               height="50px"
               classNames="d-flex align-self-center me-3 shadow-1-strong"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { HOME_URL, LOGIN } from "../constants/routes";
+import { HOME_URL, LOGIN, SUCCESS_REDIRECT_PAGE } from "../constants/routes";
 import { userExists, usernameExists } from "../utils/signUp";
 import { data } from "../utils/signUp";
 import { users, setUsers } from "../utils/users";
@@ -42,7 +42,7 @@ function SignUp() {
         setUsers(usersData, true);
         setTimeout(() => {
           setLoading(false);
-          navigate(HOME_URL);
+          navigate(SUCCESS_REDIRECT_PAGE);
         }, 5000);
       } else {
         setFullName("");

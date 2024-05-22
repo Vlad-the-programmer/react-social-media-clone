@@ -3,14 +3,15 @@ import Column from "./Column";
 import sizeEnum from "./SizeEnum";
 import Comment from "./Comment";
 import UserAvatar from "./UserAvatar";
+import { PROFILE } from "../constants/routes";
 
-type ModalPostDetailProps = {
+export type ModalPostDetailProps = {
   children: ReactNode;
   imageLink: string;
   comments: Array<any>;
 };
 
-const renderComments = (props: ModalPostDetailProps) => {
+export const renderComments = (props: ModalPostDetailProps) => {
   return (
     <>
       <div className="container my-2 py-3">
@@ -40,8 +41,9 @@ const renderComments = (props: ModalPostDetailProps) => {
                       >
                         <UserAvatar
                           avatarUrl={obj.avatarLink}
-                          width="45px"
-                          height="100%"
+                          avatarLink={PROFILE}
+                          width="50px"
+                          height="60px"
                           classNames="shadow-1-strong me-3"
                         />
                       </Comment>
