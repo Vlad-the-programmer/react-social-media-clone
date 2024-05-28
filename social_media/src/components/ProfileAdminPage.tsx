@@ -1,20 +1,24 @@
 import React, { useState } from "react";
-import { usersType, updateUsersObj } from "../utils/users";
-import { PROFILE_ADMIN, SUCCESS_REDIRECT_PAGE } from "../constants/routes";
+import { usersType, updateUsersObj, getUsers } from "../utils/users";
+import {
+  PROFILE,
+  PROFILE_ADMIN,
+  SUCCESS_REDIRECT_PAGE,
+} from "../constants/routes";
 import Row from "./Row";
 import { useNavigate } from "react-router-dom";
+import UserAvatar from "./UserAvatar";
 
 type ProfileAdminPageProps = {
-  profileObj: usersType;
   i: string;
 };
 
-export default function ProfileAdminPage({
-  profileObj,
-  i,
-}: ProfileAdminPageProps) {
+export default function ProfileAdminPage({ i }: ProfileAdminPageProps) {
+  const [profiles, setProfiles] = useState(getUsers());
+  const profileObj = profiles[i];
   console.log("ProfileObj ", profileObj);
   console.log("ProfileObj type", typeof profileObj);
+
   const [firstName, setFirstName] = useState(profileObj.firstName);
   const [fullName, setFullName] = useState(profileObj.fullName);
   const [username, setUsername] = useState(profileObj.username);
@@ -33,37 +37,32 @@ export default function ProfileAdminPage({
   const [avatarUrl, setAvatarUrl] = useState(profileObj.avatarUrl);
 
   const navigate = useNavigate();
-  console.log("Avatarurl", avatarUrl);
 
   const onImageChange = (event: any) => {
     if (event.target.files && event.target.files[0]) {
-      // var fileName = event.target.files[0].name;
-      var file = event.target.files[0];
-      console.log("File", file);
       setAvatarUrl(URL.createObjectURL(event.target.files[0]));
-      console.log("AvatarLink ", avatarUrl);
     }
   };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const profileObjCopy = {
-      firstName,
-      fullName,
-      username,
-      email,
-      surname,
-      phoneNumber,
-      address1,
-      address2,
-      postcode,
-      area,
-      education,
-      country,
-      state,
-      region,
-      bio,
-      avatarUrl,
+      firstName: firstName,
+      fullName: fullName,
+      username: username,
+      email: email,
+      surname: surname,
+      phoneNumber: phoneNumber,
+      address1: address1,
+      address2: address2,
+      postcode: postcode,
+      area: area,
+      education: education,
+      country: country,
+      state: state,
+      region: region,
+      bio: bio,
+      avatarUrl: avatarUrl,
     };
 
     try {
@@ -72,6 +71,8 @@ export default function ProfileAdminPage({
       );
 
       updateUsersObj(i, profileObjCopy);
+      setProfiles(getUsers());
+      navigate(SUCCESS_REDIRECT_PAGE);
     } catch (error) {
       console.log(error);
       var p = document.createElement("p");
@@ -86,12 +87,12 @@ export default function ProfileAdminPage({
         <Row>
           <div className="col-md-3 border-right mx-3 ms-0">
             <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-              <img
-                className="rounded-circle mt-5"
+              <UserAvatar
+                avatarUrl={avatarUrl}
+                avatarLink={PROFILE}
                 width="170px"
                 height="200px"
-                alt="profile img"
-                src={avatarUrl}
+                classNames="mt-5"
               />
               <div className=" margin_bottom">
                 <input
@@ -279,7 +280,6 @@ export default function ProfileAdminPage({
                       id="submitButton"
                       className="btn btn-primary"
                       type="submit"
-                      onClick={() => navigate(SUCCESS_REDIRECT_PAGE)}
                     >
                       Save Profile
                     </button>

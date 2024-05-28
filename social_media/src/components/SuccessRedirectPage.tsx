@@ -50,7 +50,7 @@ export default function SuccessRedirectPage({ message }: SuccessRedirectPage) {
   const redirectToHomePage = () => {
     setTimeout(() => {
       navigate(HOME_URL);
-    }, 5000);
+    }, 2000);
     return <Spinner />;
   };
   return (

@@ -34,8 +34,7 @@ function App() {
   console.log("Users app", users);
   useEffect(() => {
     document.title = "Home page";
-    // setUsers(users);
-    getUsers();
+    setUsers(getUsers());
   }, [users]);
 
   return (
@@ -258,10 +257,7 @@ function App() {
                 />
               }
             />
-            <Route
-              path={PROFILE_ADMIN}
-              element={<ProfileAdminPage profileObj={getUsers()[0]} i="0" />}
-            />
+            <Route path={PROFILE_ADMIN} element={<ProfileAdminPage i="0" />} />
             <Route
               path={CHAT}
               element={

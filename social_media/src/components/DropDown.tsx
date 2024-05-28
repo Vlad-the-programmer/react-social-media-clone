@@ -11,7 +11,7 @@ type DropDownProps = {
 
 const getDropDownItems = (dropItems: Array<any>) => {
   return dropItems.map((obj, i) => {
-    return <DropDownItem key={i} link={obj.link} dropItemName={obj.item} />;
+    return <DropDownItem key={i} link={obj.link} dropItemElement={obj.item} />;
   });
 };
 

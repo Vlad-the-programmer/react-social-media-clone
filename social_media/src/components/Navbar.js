@@ -7,10 +7,14 @@ import {
   SIGN_UP,
   PROFILE_ADMIN,
   HOME_URL_NOT_AUTH,
+  PEOPLE,
+  HOME_URL,
 } from "../constants/routes.js";
 import DropDown from "./DropDown.tsx";
 import Notification from "./Notification.tsx";
 import LinkWithIcon from "./LinkWithIcon.tsx";
+import SearchBarDropDown from "./SearchBarDropDown.tsx";
+import { getUsers, users } from "../utils/users.ts";
 
 function Navbar() {
   const notifsArr = [
@@ -78,6 +82,7 @@ function Navbar() {
       text: "Use vray and more volumetric lighting Great effort. Use HDR images. Use vray and more volumetric lighting. Use more advanced textures. Make the grass look realistic by giving it wear and tear. ",
     },
   ];
+
   const renderNotifications = (notifs) => {
     return notifs.map((notifObj, i) => {
       return (
@@ -109,19 +114,27 @@ function Navbar() {
             </Icon>
           </a>
           <div class="d-flex align-items-end justify-content-between ms-5">
-            <NavbarLink link="http://www.w3.org" text="Search Bar">
+            <SearchBarDropDown
+            // dropItems={getUsers().map((profile, i) => {
+            //   return {
+            //     avatarLink: profile.avatarUrl,
+            //     text: profile.fullName,
+            //     subText: profile.bio,
+            //   };
+            // })}
+            >
               <Icon width="16" height="16" className="bi bi-search">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
               </Icon>
-            </NavbarLink>
+            </SearchBarDropDown>
 
-            <NavbarLink link="http://www.w3.org" text="Home">
+            <NavbarLink link={HOME_URL} text="Home">
               <Icon width="16" height="16" className="bi bi-house-door">
                 <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z" />
               </Icon>
             </NavbarLink>
 
-            <NavbarLink link="http://www.w3.org" text="People list">
+            <NavbarLink link={PEOPLE} text="People list">
               <Icon width="16" height="16" className="bi bi-people-fill">
                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
               </Icon>
@@ -142,12 +155,12 @@ function Navbar() {
                 height: "400px",
                 overflow: "scroll",
               }}
-              dropItems={[
-                {
+              dropItems={notifsArr.map((v, i) => {
+                return {
                   link: "/",
-                  item: renderNotifications(notifsArr),
-                },
-              ]}
+                  item: renderNotifications(notifsArr)[i],
+                };
+              })}
             >
               <Icon width="16" height="16" className="bi bi-bell-fill">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />

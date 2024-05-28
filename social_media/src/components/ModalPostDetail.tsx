@@ -34,6 +34,7 @@ export const renderComments = (props: ModalPostDetailProps) => {
                   {props.comments.map((obj, i) => {
                     return (
                       <Comment
+                        key={i}
                         text={obj.commentText}
                         authorUsername={obj.authorUsername}
                         dateAndTimeCreated={obj.dateAndTimeCreated}

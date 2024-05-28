@@ -43,7 +43,7 @@ function SignUp() {
         setTimeout(() => {
           setLoading(false);
           navigate(SUCCESS_REDIRECT_PAGE);
-        }, 5000);
+        }, 3000);
       } else {
         setFullName("");
         setEmailAddress("");

@@ -39,5 +39,4 @@ export function getUsers() {
 export function updateUsersObj(index: string, newObj: usersType) {
     users[Number(index)] = newObj;
     setUsers(users)
-
 }
