@@ -15,3 +15,20 @@ code {
 .labels {
   font-size: 11px
 }
+
+.reactionPic{
+  width: 23px;
+  height: 23px;
+  margin-left: 1px;
+  cursor: pointer;
+}
+
+.likeCount{
+  margin-left: 5px;
+  font-size: 15px;
+}
+.commentCount{
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: 1px underline;
+}

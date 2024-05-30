@@ -38,7 +38,6 @@ function SignUp() {
             password: password,
           },
         ]);
-        console.log(usersData);
         setUsers(usersData, true);
         setTimeout(() => {
           setLoading(false);
@@ -48,7 +47,7 @@ function SignUp() {
         setFullName("");
         setEmailAddress("");
         setPassword("");
-        setError("User Exists!");
+        setError("User with the email already exists!");
         setLoading(false);
       }
     } else {
@@ -59,15 +58,18 @@ function SignUp() {
 
   useEffect(() => {
     document.title = "Sign Up - Instagram";
-    // setUsers(usersData, true);
   }, []);
+
+  useEffect(() => {
+    setUsers(usersData, true);
+  }, [usersData]);
 
   return (
     <div className="container flex mx-auto h-screen">
       <div className="d-flex flex-row align-items-center gx-6">
         <div className="d-flex  flex-column mx-5">
           <img
-            src={process.env.PUBLIC_URL + "../media/signup.png"}
+            src={process.env.PUBLIC_URL + "/media/signup.png"}
             alt="Instagram"
           />
         </div>
@@ -94,7 +96,7 @@ function SignUp() {
                 aria-label="Enter your full name"
                 type="text"
                 placeholder="Full name"
-                className="text-sm text-gray-base w-full mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
+                className="text-sm text-gray-base mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
                 onChange={({ target }) => setFullName(target.value)}
                 value={fullName}
               />
@@ -102,7 +104,7 @@ function SignUp() {
                 aria-label="Enter your email address"
                 type="text"
                 placeholder="Email address"
-                className="text-sm text-gray-base w-full mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
+                className="text-sm text-gray-base mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
                 onChange={({ target }) => setEmailAddress(target.value)}
                 value={emailAddress}
               />
@@ -128,7 +130,7 @@ function SignUp() {
               {loading && <Spinner />}
             </form>
           </div>
-          <div className="flex justify-content-center align-items-center flex-column w-full bg-white p-4 rounded border border-gray-primary">
+          <div className="flex justify-content-center align-items-center flex-column bg-white p-4 rounded border border-gray-primary">
             <p className="text-sm">
               Have an account?{` `}
               <Link to={LOGIN} className="font-bold text-blue-medium">

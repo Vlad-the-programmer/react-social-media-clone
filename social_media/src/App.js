@@ -13,6 +13,7 @@ import {
   PROFILE_ADMIN,
   BOOKMARKS,
   SUCCESS_REDIRECT_PAGE,
+  SIGN_OUT,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -29,6 +30,7 @@ import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
 import { getUsers, setUsers, users } from "./utils/users";
 import { useEffect } from "react";
 import SuccessRedirectPage from "./components/SuccessRedirectPage";
+import SignOut from "./components/SignOut";
 
 function App() {
   console.log("Users app", users);
@@ -321,6 +323,7 @@ function App() {
                 ></Chat>
               }
             />
+            <Route path={SIGN_OUT} element={<SignOut />} />
             <Route path="*" element={<NotFound />} />
           </Route>
 

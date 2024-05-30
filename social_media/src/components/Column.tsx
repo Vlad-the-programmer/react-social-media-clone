@@ -3,8 +3,6 @@ import sizeEnum from "./SizeEnum";
 
 type ColumnProps = {
   smallSize: sizeEnum;
-  // mediumSize: sizeEnum;
-  // largeSize: sizeEnum;
   children: ReactNode;
   classNames: Array<string>;
 };
@@ -41,7 +39,6 @@ function translateSizeToSmallClass(size: sizeEnum) {
 }
 
 function getClassesNamesString(classNamesArr: string[] = []) {
-  console.log(classNamesArr.join(" "));
   return classNamesArr.join(" ");
 }
 

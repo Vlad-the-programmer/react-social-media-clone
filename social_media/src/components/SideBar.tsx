@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Icon from "./Icon";
 import {
   BOOKMARKS,
@@ -6,58 +6,25 @@ import {
   FRIENDS,
   GROUPS,
   PEOPLE,
-  PROFILE,
   PROFILE_ADMIN,
 } from "../constants/routes";
-import { Link, useLocation } from "react-router-dom";
-import DropDown from "./DropDown";
+import { Link } from "react-router-dom";
 import LinkWithIcon from "./LinkWithIcon";
+
 type SideBarProps = {
   home_url: string;
 };
 
 function SideBar(props: SideBarProps) {
-  const { pathname } = useLocation();
-  const link = useRef<HTMLAnchorElement>(null);
-  console.log(pathname, pathname.replaceAll("/", ""));
-  let rawPathname = pathname.replaceAll("/", "");
-  const [activeNavlink, setActiveNavlink] = useState(rawPathname);
-  const [isActive, setIsActive] = useState("");
-
-  function activateLink() {
-    // var button = document.getElementById("#profileButton");
-    // if (pathname === GROUPS) {
-    // var button = document.querySelector(`#${activeNavlink}Button`);
-    // setActiveNavlink(`${rawPathname}Button`);
-    // console.log(activeNavlink);
-    // setIsActive("active");
-    // link.current?.classList.add(isActive);
-    // console.log("link ref ", link.current?.classList);
-    // } else if (pathname === FRIENDS) {
-    //   button = document.getElementById("#friendsButton");
-    //   button?.classList.add(" active");
-    // } else if (pathname === FEEDS) {
-    //   button = document.getElementById("#feedsButton");
-    //   button?.classList.add(" active");
-    // } else if (pathname === BOOKMARKS) {
-    //   button = document.getElementById("#bookmarksButton");
-    //   button?.classList.add(" active");
-    // } else {
-    //   button?.classList.add(" active");
-    // }
-  }
-
   return (
     <div className="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark sidebar-height">
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <Link
             id="profileButton"
-            ref={link}
             to={PROFILE_ADMIN}
             className="nav-link"
             aria-current="page"
-            onClick={activateLink}
           >
             <Icon width="16" height="16" className="bi bi-person-circle">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />

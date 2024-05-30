@@ -26,7 +26,6 @@ export default function ProfileCard(props: ProfileCardProps) {
 
   const [buttonBackground, setButtonBackground] = useState("btn-primary");
   const [buttonText, setButtonText] = useState(props.buttonNames[0]);
-  console.log(buttonText);
   return (
     <Column smallSize={props.columnSize} classNames={["my-2 py-1"]}>
       <div className="card align-items-center">

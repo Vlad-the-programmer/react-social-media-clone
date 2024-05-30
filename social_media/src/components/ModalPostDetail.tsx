@@ -20,9 +20,9 @@ export const renderComments = (props: ModalPostDetailProps) => {
             <div className="card">
               <div className="card-body p-4">
                 <h4 className="mb-0">Recent comments</h4>
-                <p className="fw-light mb-4 pb-2">
-                  Latest Comments section by users
-                </p>
+                <span className="commentCount">
+                  {props.comments.length} Comments...
+                </span>
                 <div
                   className=""
                   style={{
@@ -78,6 +78,31 @@ export default function ModalPostDetail(props: ModalPostDetailProps) {
 
         <Column smallSize={sizeEnum.six} classNames={["my-1"]}>
           {props.children}
+          <div
+            className="d-flex align-items-center me-5 justify-content-between mt-3"
+            style={{ width: "98%" }}
+          >
+            <div className="d-flex align-items-center">
+              <img
+                src={process.env.PUBLIC_URL + "/icons/like.png"}
+                alt=""
+                className="reactionPic"
+              />
+              <img
+                src={process.env.PUBLIC_URL + "/icons/love.png"}
+                alt=""
+                className="reactionPic"
+              />
+              <img
+                src={process.env.PUBLIC_URL + "/icons/haha.png"}
+                alt=""
+                className="reactionPic"
+              />
+              <span className="likeCount">
+                Sachith Mihikalpa and 125 others.
+              </span>
+            </div>
+          </div>
         </Column>
         {renderComments(props)}
       </div>

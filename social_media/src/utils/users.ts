@@ -29,14 +29,16 @@ export function setUsers(users: Array<usersType>, signUp = false) {
         v.bio = " "
     }
     localStorage.setItem("users", JSON.stringify(users));
-    getUsers();
+    users = getUsers();
 }
 
 export function getUsers() {
-    return JSON.parse(localStorage.getItem("users") || "[{}]");
+    const newUsers: Array<usersType> = Array.from(
+        JSON.parse(localStorage.getItem("users") || "[{}]"));
+    return newUsers;
 }
 
-export function updateUsersObj(index: string, newObj: usersType) {
-    users[Number(index)] = newObj;
+export function updateUsersObj(index: number, newObj: usersType) {
+    users[index] = newObj;
     setUsers(users)
 }

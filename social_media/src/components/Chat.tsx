@@ -69,9 +69,9 @@ const renderMessages = (props: ChatProps) => {
 
 export default function Chat(props: ChatProps) {
   return (
-    <section style={{ backgroundColor: "#eee", width: "100%" }}>
-      <div className="container py-4">
-        <div className="row d-flex justify-content-center mx-0">
+    <section style={{ width: "100%" }}>
+      <div className="container py-2 px-0 ms-0">
+        <div className="row d-flex justify-content-center mx-0 w-100">
           <SideBarWithChats
             chatObj={[
               {
@@ -192,11 +192,9 @@ export default function Chat(props: ChatProps) {
                 </div>
               </div>
               <div
-                className="card-body"
+                className="card-body overflow-scroll"
                 style={{
-                  position: "relative",
                   height: "600px",
-                  overflow: "scroll",
                 }}
               >
                 {renderMessages(props)}

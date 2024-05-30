@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import UserAvatar from "./UserAvatar";
 
 type ProfileAdminPageProps = {
-  i: string;
+  i: number;
 };
 
 export default function ProfileAdminPage({ i }: ProfileAdminPageProps) {

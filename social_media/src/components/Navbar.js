@@ -9,6 +9,7 @@ import {
   HOME_URL_NOT_AUTH,
   PEOPLE,
   HOME_URL,
+  SIGN_OUT,
 } from "../constants/routes.js";
 import DropDown from "./DropDown.tsx";
 import Notification from "./Notification.tsx";
@@ -114,15 +115,7 @@ function Navbar() {
             </Icon>
           </a>
           <div class="d-flex align-items-end justify-content-between ms-5">
-            <SearchBarDropDown
-            // dropItems={getUsers().map((profile, i) => {
-            //   return {
-            //     avatarLink: profile.avatarUrl,
-            //     text: profile.fullName,
-            //     subText: profile.bio,
-            //   };
-            // })}
-            >
+            <SearchBarDropDown>
               <Icon width="16" height="16" className="bi bi-search">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
               </Icon>
@@ -196,7 +189,7 @@ function Navbar() {
                 },
                 {
                   item: "SignOut",
-                  link: HOME_URL_NOT_AUTH,
+                  link: SIGN_OUT,
                 },
               ]}
             />

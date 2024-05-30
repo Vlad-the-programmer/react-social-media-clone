@@ -9,6 +9,7 @@ export const CHAT = "/chat/";
 export const HOME_URL_NOT_AUTH = "/not-auth";
 export const LOGIN = "/login";
 export const SIGN_UP = "/sign-up";
+export const SIGN_OUT = "/sign-out";
 export const PROFILE = "/p";
 export const PROFILE_ADMIN = "/p/admin";
 

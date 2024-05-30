@@ -24,7 +24,7 @@ export const renderComments = (comments: Array<any>) => {
             <div className="card-body p-4">
               <h4 className="mb-0">Recent comments</h4>
               <p className="fw-light mb-4 pb-2">
-                Latest Comments section by users
+                {comments.length} Comments...
               </p>
               <div
                 className=""
@@ -88,7 +88,7 @@ export default function GroupPost(props: GroupPostProps) {
         <p className="mb-0">{props.postText}</p>
         <hr />
         <div>
-          <img src={props.imgLink} width="98%" alt="post image" />
+          <img src={props.imgLink} width="98%" alt="post" />
           <ToggleButton buttonName="Read comments">
             {renderComments(props.comments)}
           </ToggleButton>

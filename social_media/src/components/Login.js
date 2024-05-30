@@ -6,10 +6,8 @@ import Icon from "./Icon.tsx";
 import { getUsers, users } from "../utils/users";
 
 function Login() {
-  //   const history = useHistory();
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  // const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState("");
   const isInvalid = password === "" || emailAddress === "";
 
@@ -18,19 +16,17 @@ function Login() {
     event.preventDefault();
 
     if (userExists(emailAddress) && checkPassword(password)) {
-      // setLoggedIn(true);
-      //   history.push(ROUTES.DASHBOARD);
       navigate(HOME_URL);
     } else {
       setEmailAddress("");
       setPassword("");
       setError("Invalid credentials!");
+      console.log("Login users ", users);
     }
   };
 
   useEffect(() => {
     document.title = "Login - Instagram";
-    getUsers();
   }, []);
 
   return (
