@@ -12,6 +12,7 @@ export const SIGN_UP = "/sign-up";
 export const SIGN_OUT = "/sign-out";
 export const PROFILE = "/p";
 export const PROFILE_ADMIN = "/p/admin";
+export const CREATE_POST = "/create-post";
 
 export const NOT_FOUND = "/not-found";
 export const SUCCESS_REDIRECT_PAGE = "/success-page";

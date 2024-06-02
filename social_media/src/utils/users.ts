@@ -1,6 +1,7 @@
+import { data } from "./signUp";
 
 
-export const users: Array<usersType> = Array.from(getUsers());
+export const users: Array<usersType> = Array.from(getUsers().length > 0 ? getUsers() : data);
 console.log("Users ", users);
 console.log("Users type", typeof users);
 

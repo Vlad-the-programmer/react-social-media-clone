@@ -14,6 +14,7 @@ import {
   BOOKMARKS,
   SUCCESS_REDIRECT_PAGE,
   SIGN_OUT,
+  CREATE_POST,
 } from "./constants/routes";
 import NotFound from "./components/NotFound";
 import ProfileDetail from "./components/ProfileDetail.tsx";
@@ -31,6 +32,7 @@ import { getUsers, setUsers, users } from "./utils/users";
 import { useEffect } from "react";
 import SuccessRedirectPage from "./components/SuccessRedirectPage";
 import SignOut from "./components/SignOut";
+import CreatePost from "./components/CreatePost";
 
 function App() {
   console.log("Users app", users);
@@ -45,6 +47,8 @@ function App() {
         href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap"
         rel="stylesheet"
       />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
       <Router>
         <Routes>
           <Route element={<Layout />}>
@@ -82,23 +86,25 @@ function App() {
                       buttonNames={["Follow", "UnFollow"]}
                     />
                   </div>
-                  <PostsGroup
-                    imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                    ]}
-                    titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
-                    buttonLink="/"
-                    cardTexts={[
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                    ]}
-                    buttonName={["Read more"]}
-                  />
+                  <div className="row overflow-y-auto flex-nowrap mt-2">
+                    <PostsGroup
+                      imageLinks={[
+                        "https://picsum.photos/300/200",
+                        "https://picsum.photos/300/200",
+                        "https://picsum.photos/300/200",
+                        "https://picsum.photos/300/200",
+                      ]}
+                      titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
+                      buttonLink="/"
+                      cardTexts={[
+                        "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                        "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                        "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                        "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                      ]}
+                      buttonName={["Read more"]}
+                    />
+                  </div>
                 </Column>
               }
             />
@@ -109,20 +115,24 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center mt-4"]}
                 >
-                  <GroupsCardsGroup
-                    imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                    ]}
-                    titles={["Group 1", "Group 2", "Group 3", "Group 4"]}
-                    buttonLink="/"
-                    columnSize={sizeEnum.six}
-                    cardTexts={["Group 1", "Group 2", "Group 3", "Group 4"]}
-                    groupDescription="Private group 177.0K members"
-                    buttonNames={["Join", "Leave"]}
-                  />
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
+                      <GroupsCardsGroup
+                        imageLinks={[
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                        ]}
+                        titles={["Group 1", "Group 2", "Group 3", "Group 4"]}
+                        buttonLink="/"
+                        columnSize={sizeEnum.six}
+                        cardTexts={["Group 1", "Group 2", "Group 3", "Group 4"]}
+                        groupDescription="Private group 177.0K members"
+                        buttonNames={["Join", "Leave"]}
+                      />
+                    </div>
+                  </div>
                 </Column>
               }
             />
@@ -131,20 +141,26 @@ function App() {
               element={
                 <Column
                   smallSize={sizeEnum.nine}
-                  classNames={["card-group align-items-center mt-4"]}
+                  classNames={["card-group align-items-center"]}
                 >
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
                   <FriendsCardsGroup
                     imageLinks={[
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
                     ]}
-                    titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
+                    titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
                     buttonLink="/"
-                    cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
+                    cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
                     buttonNames={["Follow", "UnFollow"]}
                   />
+                  </div>
+            </div>
                 </Column>
               }
             />
@@ -153,10 +169,14 @@ function App() {
               element={
                 <Column
                   smallSize={sizeEnum.nine}
-                  classNames={["card-group align-items-center mt-4"]}
+                  classNames={["card-group align-items-center"]}
                 >
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
                   <PeopleCardsGroup
                     imageLinks={[
+                      "https://picsum.photos/300/200",
+                      "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
@@ -167,6 +187,8 @@ function App() {
                       "Someone 2",
                       "Someone 3",
                       "Someone 4",
+                      "Someone 5",
+                      "Someone 6",
                     ]}
                     buttonLink="/"
                     cardsColumnSize={sizeEnum.four}
@@ -175,9 +197,13 @@ function App() {
                       "Someone 2",
                       "Someone 3",
                       "Someone 4",
+                      "Someone 5",
+                      "Someone 6",
                     ]}
                     buttonNames={["Follow", "UnFollow"]}
                   />
+                  </div>
+                  </div>
                 </Column>
               }
             />
@@ -188,23 +214,31 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center mt-4"]}
                 >
-                  <PostsGroup
-                    imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                    ]}
-                    titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
-                    buttonLink="/"
-                    cardTexts={[
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                    ]}
-                    buttonName={["Read more"]}
-                  />
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
+                      <PostsGroup
+                        imageLinks={[
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                        ]}
+                        titles={["Post 1", "Post 2", "Post 3", "Post 4", "Post 5", "Post 6"]}
+                        buttonLink="/"
+                        cardTexts={[
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                        ]}
+                        buttonName={["Read more"]}
+                      />
+                    </div>
+                  </div>
                 </Column>
               }
             />
@@ -215,23 +249,27 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center mt-4"]}
                 >
-                  <PostsGroup
-                    imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                    ]}
-                    titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
-                    buttonLink="/"
-                    cardTexts={[
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                      "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
-                    ]}
-                    buttonName={["Read more"]}
-                  />
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
+                      <PostsGroup
+                        imageLinks={[
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                        ]}
+                        titles={["Post 1", "Post 2", "Post 3", "Post 4"]}
+                        buttonLink="/"
+                        cardTexts={[
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                          "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
+                        ]}
+                        buttonName={["Read more"]}
+                      />
+                    </div>
+                  </div>
                 </Column>
               }
             />
@@ -320,10 +358,11 @@ function App() {
                       dateAndTime: "23 Jan 5:37 pm",
                     },
                   ]}
-                ></Chat>
+                />
               }
             />
             <Route path={SIGN_OUT} element={<SignOut />} />
+            <Route path={CREATE_POST} element={<CreatePost />} />
             <Route path="*" element={<NotFound />} />
           </Route>
 

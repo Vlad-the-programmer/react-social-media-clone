@@ -17,11 +17,9 @@ type ProfileDetailProps = {
 const getImages = (imgUrls: Array<string>) => {
   return imgUrls.map((imgUrl, i) => {
     return (
-      <>
         <div className="col mb-2">
           <img src={imgUrl} alt={`image ${i}`} className="w-100 rounded-3" />
         </div>
-      </>
     );
   });
 };
@@ -36,7 +34,7 @@ function ProfileDetail(props: ProfileDetailProps) {
     }
   };
   return (
-    <div className="container flex-shrink-0 py-5 h-100">
+    <div className="container flex-shrink-0 py-5 h-100 w-75">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col col-md-10 col-lg-12 col-xl-12">
           <div className="card" style={{ borderRadius: "15px" }}>

@@ -12,7 +12,7 @@ type PostsGroup = {
 export default function PostsGroup(props: PostsGroup) {
   return (
     <>
-      <div className="row overflow-y-auto flex-nowrap">
+      
         {props.imageLinks.map((v, i) => {
           return (
             <PostCard
@@ -27,7 +27,7 @@ export default function PostsGroup(props: PostsGroup) {
             </PostCard>
           );
         })}
-      </div>
+      
     </>
   );
 }

@@ -4,11 +4,15 @@ import { LOGIN } from "../constants/routes";
 
 export default function SignOut() {
   return (
-    <>
-      <div className="d-flex align-items-center text-center p-3 py-5 mx-5 px-5">
-        You have been signout.
-        <Link to={LOGIN}>Login</Link>
+    <div className="container d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center text-center">
+
+        <form method="POST" action="">
+          <legend>Log out</legend>
+          <p>Are you sure you want to log out? </p>
+          <Link to={LOGIN} className="btn btn-danger">Logout</Link>
+        </form>
       </div>
-    </>
+    </div>
   );
 }

@@ -194,7 +194,7 @@ export default function Chat(props: ChatProps) {
               <div
                 className="card-body overflow-scroll"
                 style={{
-                  height: "600px",
+                  height: "500px",
                 }}
               >
                 {renderMessages(props)}
