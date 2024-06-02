@@ -48,7 +48,7 @@ function Card(props: CardProps) {
               <div className="col-sm-6">
                 <ModalLink
                   modal={
-                    <Modal title={props.title} buttonName="Show All">
+                    <Modal title={props.title}>
                       <ModalGroupDetail
                         imageLink={props.imageLink}
                         posts={[

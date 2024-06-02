@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 
 type ModalProps = {
   title: string;
-  buttonName: string;
   children: ReactNode;
 };
 

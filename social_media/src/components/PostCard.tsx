@@ -37,7 +37,7 @@ function PostCard(props: PostCardProps) {
           <div className="d-flex align-items-end ms-4">
             <ModalLink
               modal={
-                <Modal title={props.title} buttonName="Show All">
+                <Modal title={props.title}>
                   <ModalPostDetail
                     imageLink={props.imageLink}
                     comments={[

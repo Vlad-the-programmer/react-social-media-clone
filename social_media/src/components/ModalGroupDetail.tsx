@@ -69,7 +69,6 @@ export default function ModalGroupDetail(props: ModalGroupDetailProps) {
   return (
     <Column smallSize={sizeEnum.twelve} classNames={["my-1"]}>
       <div className="row">
-        {/* <Column smallSize={sizeEnum.six} classNames={["my-1"]}> */}
         <img
           src={props.imageLink}
           className="card-img-top"
@@ -79,10 +78,7 @@ export default function ModalGroupDetail(props: ModalGroupDetailProps) {
         />
         <h4>{props.children}</h4>
         <h5>{props.groupDescription}</h5>
-        {/* </Column> */}
 
-        {/* <Column smallSize={sizeEnum.six} classNames={["my-1"]}>
-        </Column> */}
         {renderGroupPosts(props)}
       </div>
     </Column>
