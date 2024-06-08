@@ -32,7 +32,6 @@ import { getUsers, setUsers, users } from "./utils/users";
 import { useEffect } from "react";
 import SuccessRedirectPage from "./components/SuccessRedirectPage";
 import SignOut from "./components/SignOut";
-import CreatePost from "./components/CreatePost";
 
 function App() {
   console.log("Users app", users);
@@ -143,24 +142,18 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
-                    <div className="row">
                   <FriendsCardsGroup
                     imageLinks={[
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
                     ]}
-                    titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
+                    titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
                     buttonLink="/"
-                    cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
+                    cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
                     buttonNames={["Follow", "UnFollow"]}
                   />
-                  </div>
-            </div>
                 </Column>
               }
             />
@@ -171,12 +164,8 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
-                    <div className="row">
                   <PeopleCardsGroup
                     imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
                       "https://picsum.photos/300/200",
@@ -187,8 +176,6 @@ function App() {
                       "Someone 2",
                       "Someone 3",
                       "Someone 4",
-                      "Someone 5",
-                      "Someone 6",
                     ]}
                     buttonLink="/"
                     cardsColumnSize={sizeEnum.four}
@@ -197,13 +184,9 @@ function App() {
                       "Someone 2",
                       "Someone 3",
                       "Someone 4",
-                      "Someone 5",
-                      "Someone 6",
                     ]}
                     buttonNames={["Follow", "UnFollow"]}
                   />
-                  </div>
-                  </div>
                 </Column>
               }
             />
@@ -362,7 +345,6 @@ function App() {
               }
             />
             <Route path={SIGN_OUT} element={<SignOut />} />
-            <Route path={CREATE_POST} element={<CreatePost />} />
             <Route path="*" element={<NotFound />} />
           </Route>
 
