@@ -1,46 +1,79 @@
 import { useState, useEffect } from "react";
-import { HOME_URL, SIGN_UP } from "../constants/routes";
 import { Link, useNavigate } from "react-router-dom";
-import { userExists, checkPassword } from "../utils/signUp";
-import Icon from "./Icon.tsx";
-import { getUsers, users } from "../utils/users";
+import { HOME_URL, LOGIN, SUCCESS_REDIRECT_PAGE } from "../constants/routes";
+import { userExists, usernameExists } from "../utils/signUp";
+import { data } from "../utils/signUp";
+import { users, setUsers } from "../utils/users";
+import Icon from "../components/Icon";
+import Spinner from "../components/Spinner";
 
-function Login() {
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const isInvalid = password === "" || emailAddress === "";
+function SignUp() {
+  const [usersData, setUserData] = useState(() => {
+    return users.length > 0 ? users : data;
+  });
 
   const navigate = useNavigate();
-  const handleLogin = async (event) => {
+
+  const [username, setUsername] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+  const isInvalid = password === "" || emailAddress === "";
+  const [loading, setLoading] = useState(false);
+
+  const handleSignUp = async (event) => {
     event.preventDefault();
 
-    if (userExists(emailAddress) && checkPassword(password)) {
-      navigate(HOME_URL);
+    if (!usernameExists(username)) {
+      if (!userExists(emailAddress)) {
+        setLoading(true);
+        setUserData((previousUsersData) => [
+          ...previousUsersData,
+          {
+            fullName: fullName,
+            username: username,
+            email: emailAddress,
+            password: password,
+          },
+        ]);
+        setUsers(usersData, true);
+        setTimeout(() => {
+          setLoading(false);
+          navigate(SUCCESS_REDIRECT_PAGE);
+        }, 3000);
+      } else {
+        setFullName("");
+        setEmailAddress("");
+        setPassword("");
+        setError("User with the email already exists!");
+        setLoading(false);
+      }
     } else {
-      setEmailAddress("");
-      setPassword("");
-      setError("Invalid credentials!");
-      console.log("Login users ", users);
+      setUsername("");
+      setError("That username is already taken, please try another.");
     }
   };
 
   useEffect(() => {
-    document.title = "Login - Instagram";
+    document.title = "Sign Up - Instagram";
   }, []);
 
+  useEffect(() => {
+    setUsers(usersData, true);
+  }, [usersData]);
+
   return (
-    <div className="container flex mw-auto h-screen">
-      <div className="d-flex flex-row align-items-center mx-5">
-        <div className="flex flex-column mx-5">
+    <div className="container flex mx-auto h-screen">
+      <div className="d-flex flex-row align-items-center gx-6">
+        <div className="d-flex  flex-column mx-5">
           <img
-            src={process.env.PUBLIC_URL + "media/login.png"}
-            alt="iPhone with Instagram app"
-            width={"200"}
-            height={"400"}
+            src={process.env.PUBLIC_URL + "/media/signup.png"}
+            alt="Instagram"
           />
         </div>
-        <div className="flex flex-column px-5 col-sm-5 mx-5">
+        <div className="flex flex-column col-sm-3 mx-5">
           <div className="d-flex flex-column flex-direction-column align-items-center bg-white p-4 border border-gray-primary mb-4 rounded">
             <h1 className="flex justify-content-center">
               <Icon width="32" height="32" class="bi bi-instagram">
@@ -50,7 +83,23 @@ function Login() {
 
             {error && <p className="mb-4 text-xs text-danger">{error}</p>}
 
-            <form onSubmit={handleLogin} method="POST" className="mx-3">
+            <form onSubmit={handleSignUp} method="POST">
+              <input
+                aria-label="Enter your username"
+                type="text"
+                placeholder="Username"
+                className="text-sm text-gray-base mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
+                onChange={({ target }) => setUsername(target.value)}
+                value={username}
+              />
+              <input
+                aria-label="Enter your full name"
+                type="text"
+                placeholder="Full name"
+                className="text-sm text-gray-base mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
+                onChange={({ target }) => setFullName(target.value)}
+                value={fullName}
+              />
               <input
                 aria-label="Enter your email address"
                 type="text"
@@ -63,29 +112,29 @@ function Login() {
                 aria-label="Enter your password"
                 type="password"
                 placeholder="Password"
-                className="text-sm text-gray-base mr-3 py-3 px-4  h-2 border border-gray-primary rounded mb-2"
+                className="text-sm text-gray-base  mr-3 py-3 px-4 h-2 border border-gray-primary rounded mb-2"
                 onChange={({ target }) => setPassword(target.value)}
                 value={password}
               />
-              <a href="/" className="text-blue ps-4 ms-5 my-3">
-                Forgot password?
-              </a>
               <hr />
+
               <button
                 disabled={isInvalid}
                 type="submit"
-                className={`bg-success text-white px-3 mx-5 rounded h-8 font-bold
+                className={`bg-success text-white rounded h-8 font-bold px-3 ms-5
             ${isInvalid && "opacity-50"}`}
               >
-                Login
+                Sign Up
               </button>
+
+              {loading && <Spinner />}
             </form>
           </div>
-          <div className="flex justify-content-center align-items-center flex-column w-full bg-white p-4 rounded border border-gray-primary">
+          <div className="flex justify-content-center align-items-center flex-column bg-white p-4 rounded border border-gray-primary">
             <p className="text-sm">
-              Don't have an account?{` `}
-              <Link to={SIGN_UP} className="font-bold text-blue-medium">
-                Sign up
+              Have an account?{` `}
+              <Link to={LOGIN} className="font-bold text-blue-medium">
+                Login
               </Link>
             </p>
           </div>
@@ -95,4 +144,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

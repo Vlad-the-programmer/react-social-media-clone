@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import SideBarWithChats from "./SideBarWithChats";
-import Icon from "./Icon";
-import UserAvatar from "./UserAvatar";
+import SideBarWithChats from "../components/SideBarWithChats";
+import Icon from "../components/Icon";
+import UserAvatar from "../components/UserAvatar";
 import { PROFILE } from "../constants/routes";
 
 type ChatProps = {

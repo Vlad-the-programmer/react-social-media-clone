@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "../constants/routes";
-import Spinner from "./Spinner";
+import Spinner from "../components/Spinner";
 
-type SuccessRedirectPage = { message: string };
-export default function SuccessRedirectPage({ message }: SuccessRedirectPage) {
+type SuccessRedirectPageProps = { message: string };
+export default function SuccessRedirectPage({ message }: SuccessRedirectPageProps) {
   const styles: { [key: string]: React.CSSProperties } = {
     heading1: {
       color: "#88B04B",

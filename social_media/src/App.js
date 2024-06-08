@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignUp from "./components/SignUp";
-import Login from "./components/Login";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 import {
   LOGIN,
   PROFILE,
@@ -16,8 +16,8 @@ import {
   SIGN_OUT,
   CREATE_POST,
 } from "./constants/routes";
-import NotFound from "./components/NotFound";
-import ProfileDetail from "./components/ProfileDetail.tsx";
+import NotFound from "./pages/NotFound";
+import ProfileDetail from "./pages/ProfileDetail";
 import Layout from "./components/Layout";
 import LayoutNotLoggedIn from "./components/LayoutNotLoggedIn";
 import sizeEnum from "./components/SizeEnum";
@@ -26,15 +26,15 @@ import GroupsCardsGroup from "./components/GroupsCardsGroup.tsx";
 import PostsGroup from "./components/PostsGroup.tsx";
 import FriendsCardsGroup from "./components/FriendsCardsGroup.tsx";
 import PeopleCardsGroup from "./components/PeopleCardsGroup.tsx";
-import Chat from "./components/Chat";
-import ProfileAdminPage from "./components/ProfileAdminPage.tsx";
+import Chat from "./pages/Chat";
+import ProfileAdminPage from "./pages/ProfileAdminPage";
 import { getUsers, setUsers, users } from "./utils/users";
 import { useEffect } from "react";
-import SuccessRedirectPage from "./components/SuccessRedirectPage";
-import SignOut from "./components/SignOut";
+import SuccessRedirectPage from "./pages/SuccessRedirectPage";
+import SignOut from "./pages/SignOut";
+import CreatePost from "./pages/CreatePost";
 
 function App() {
-  console.log("Users app", users);
   useEffect(() => {
     document.title = "Home page";
     setUsers(getUsers());
@@ -142,18 +142,24 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center"]}
                 >
-                  <FriendsCardsGroup
-                    imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                    ]}
-                    titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
-                    buttonLink="/"
-                    cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4"]}
-                    buttonNames={["Follow", "UnFollow"]}
-                  />
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
+                      <FriendsCardsGroup
+                        imageLinks={[
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                        ]}
+                        titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
+                        buttonLink="/"
+                        cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
+                        buttonNames={["Follow", "UnFollow"]}
+                      />
+                    </div>
+                  </div>
                 </Column>
               }
             />
@@ -164,29 +170,39 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center"]}
                 >
-                  <PeopleCardsGroup
-                    imageLinks={[
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                      "https://picsum.photos/300/200",
-                    ]}
-                    titles={[
-                      "Someone 1",
-                      "Someone 2",
-                      "Someone 3",
-                      "Someone 4",
-                    ]}
-                    buttonLink="/"
-                    cardsColumnSize={sizeEnum.four}
-                    cardTexts={[
-                      "Someone 1",
-                      "Someone 2",
-                      "Someone 3",
-                      "Someone 4",
-                    ]}
-                    buttonNames={["Follow", "UnFollow"]}
-                  />
+                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                    <div className="row">
+                      <PeopleCardsGroup
+                        imageLinks={[
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                          "https://picsum.photos/300/200",
+                        ]}
+                        titles={[
+                          "Someone 1",
+                          "Someone 2",
+                          "Someone 3",
+                          "Someone 4",
+                          "Someone 5",
+                          "Someone 6",
+                        ]}
+                        buttonLink="/"
+                        cardsColumnSize={sizeEnum.four}
+                        cardTexts={[
+                          "Someone 1",
+                          "Someone 2",
+                          "Someone 3",
+                          "Someone 4",
+                          "Someone 5",
+                          "Someone 6",
+                        ]}
+                        buttonNames={["Follow", "UnFollow"]}
+                      />
+                    </div>
+                  </div>
                 </Column>
               }
             />
@@ -344,11 +360,12 @@ function App() {
                 />
               }
             />
+            <Route path={CREATE_POST} element={<CreatePost />} />
             <Route path={SIGN_OUT} element={<SignOut />} />
-            <Route path="*" element={<NotFound />} />
           </Route>
 
           <Route element={<LayoutNotLoggedIn />}>
+            <Route path="*" element={<NotFound />} />
             <Route path={LOGIN} element={<Login />} />
             <Route path={SIGN_UP} element={<SignUp />} />
             <Route

@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from "react";
-import { useToggle } from "../utils/useToggle";
+import { useToggle } from "../hooks/useToggle";
 
 type ToggleButtonProps = {
   children: ReactNode;

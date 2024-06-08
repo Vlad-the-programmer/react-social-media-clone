@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { usersType, updateUsersObj, getUsers } from "../utils/users";
+import {  updateUsersObj, getUsers } from "../utils/users";
 import {
   PROFILE,
   PROFILE_ADMIN,
   SUCCESS_REDIRECT_PAGE,
 } from "../constants/routes";
-import Row from "./Row";
+import Row from "../components/Row";
 import { useNavigate } from "react-router-dom";
-import UserAvatar from "./UserAvatar";
+import UserAvatar from "../components/UserAvatar";
 
 type ProfileAdminPageProps = {
   i: number;

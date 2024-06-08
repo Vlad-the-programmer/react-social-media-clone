@@ -27,7 +27,7 @@ export default function ProfileCard(props: ProfileCardProps) {
   const [buttonBackground, setButtonBackground] = useState("btn-primary");
   const [buttonText, setButtonText] = useState(props.buttonNames[0]);
   return (
-    <Column smallSize={props.columnSize} classNames={["my-2 py-1"]}>
+    <Column smallSize={props.columnSize} classNames={["my-2"]}>
       <div className="card align-items-center">
         <a href={PROFILE}>
           <UserAvatar

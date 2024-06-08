@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div class="container-fluid my-3">
+    <div class="container-fluid my-3 ">
       <footer
         class="text-center text-lg-start text-dark"
         style={{ backgroundColor: "#ECEFF1" }}

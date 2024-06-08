@@ -6,7 +6,6 @@ import {
   LOGIN,
   SIGN_UP,
   PROFILE_ADMIN,
-  HOME_URL_NOT_AUTH,
   PEOPLE,
   HOME_URL,
   SIGN_OUT,
@@ -15,7 +14,6 @@ import DropDown from "./DropDown.tsx";
 import Notification from "./Notification.tsx";
 import LinkWithIcon from "./LinkWithIcon.tsx";
 import SearchBarDropDown from "./SearchBarDropDown.tsx";
-import { getUsers, users } from "../utils/users.ts";
 
 function Navbar() {
   const notifsArr = [
