@@ -10,12 +10,11 @@ export type usersType = {
     [key: string]: string;
 };
 
-export function setUsers(users: Array<usersType>, signUp = false) {
-    if (signUp) {
-        var v = users[users.length - 1]
+export function setUsers(newUsers: Array<usersType>, signUp = false) {
+    if (signUp && newUsers.length > 0) {
+        var v = newUsers[newUsers.length - 1]
         v.avatarUrl =
             "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg";
-
         v.firstName = v.fullName.split(" ")[0]
         v.surname = v.fullName.split(" ")[1]
         v.phoneNumber = " "
@@ -29,8 +28,8 @@ export function setUsers(users: Array<usersType>, signUp = false) {
         v.region = " "
         v.bio = " "
     }
-    localStorage.setItem("users", JSON.stringify(users));
-    users = getUsers();
+    localStorage.setItem("users", JSON.stringify(newUsers));
+    // newUsers = getUsers();
 }
 
 export function getUsers() {

@@ -46,7 +46,10 @@ function App() {
         href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap"
         rel="stylesheet"
       />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      />
 
       <Router>
         <Routes>
@@ -114,7 +117,10 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center mt-4"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                  <div
+                    className="card-body overflow-scroll"
+                    style={{ height: "500px" }}
+                  >
                     <div className="row">
                       <GroupsCardsGroup
                         imageLinks={[
@@ -142,7 +148,10 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                  <div
+                    className="card-body overflow-scroll"
+                    style={{ height: "500px" }}
+                  >
                     <div className="row">
                       <FriendsCardsGroup
                         imageLinks={[
@@ -153,9 +162,23 @@ function App() {
                           "https://picsum.photos/300/200",
                           "https://picsum.photos/300/200",
                         ]}
-                        titles={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
+                        titles={[
+                          "Friend 1",
+                          "Friend 2",
+                          "Friend 3",
+                          "Friend 4",
+                          "Friend 5",
+                          "Friend 6",
+                        ]}
                         buttonLink="/"
-                        cardTexts={["Friend 1", "Friend 2", "Friend 3", "Friend 4", "Friend 5", "Friend 6"]}
+                        cardTexts={[
+                          "Friend 1",
+                          "Friend 2",
+                          "Friend 3",
+                          "Friend 4",
+                          "Friend 5",
+                          "Friend 6",
+                        ]}
                         buttonNames={["Follow", "UnFollow"]}
                       />
                     </div>
@@ -170,7 +193,10 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                  <div
+                    className="card-body overflow-scroll"
+                    style={{ height: "500px" }}
+                  >
                     <div className="row">
                       <PeopleCardsGroup
                         imageLinks={[
@@ -213,7 +239,10 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center mt-4"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                  <div
+                    className="card-body overflow-scroll"
+                    style={{ height: "500px" }}
+                  >
                     <div className="row">
                       <PostsGroup
                         imageLinks={[
@@ -224,7 +253,14 @@ function App() {
                           "https://picsum.photos/300/200",
                           "https://picsum.photos/300/200",
                         ]}
-                        titles={["Post 1", "Post 2", "Post 3", "Post 4", "Post 5", "Post 6"]}
+                        titles={[
+                          "Post 1",
+                          "Post 2",
+                          "Post 3",
+                          "Post 4",
+                          "Post 5",
+                          "Post 6",
+                        ]}
                         buttonLink="/"
                         cardTexts={[
                           "WEBExplore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous dummy text. ",
@@ -248,7 +284,10 @@ function App() {
                   smallSize={sizeEnum.nine}
                   classNames={["card-group align-items-center mt-4"]}
                 >
-                  <div className="card-body overflow-scroll" style={{ height: "500px" }}>
+                  <div
+                    className="card-body overflow-scroll"
+                    style={{ height: "500px" }}
+                  >
                     <div className="row">
                       <PostsGroup
                         imageLinks={[
@@ -370,7 +409,7 @@ function App() {
             <Route path={SIGN_UP} element={<SignUp />} />
             <Route
               path={SUCCESS_REDIRECT_PAGE}
-              element={<SuccessRedirectPage message="" />}
+              element={<SuccessRedirectPage />}
             />
           </Route>
         </Routes>

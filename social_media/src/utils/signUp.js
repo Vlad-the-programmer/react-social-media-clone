@@ -9,14 +9,20 @@ export const data = [
   },
 ];
 
+const allUsersExceptCurrent = users.slice(0, users.length - 1);
+
 export function usernameExists(username) {
-  return users.filter((v, i) => v.username === username).length > 0;
+  return (
+    allUsersExceptCurrent.filter((v, i) => v.username === username).length > 0
+  );
 }
 
 export function userExists(email) {
-  return users.filter((v, i) => v.email === email).length > 0;
+  return allUsersExceptCurrent.filter((v, i) => v.email === email).length > 0;
 }
 
 export function checkPassword(password) {
-  return users.filter((v, i) => v.password === password).length > 0;
+  return (
+    allUsersExceptCurrent.filter((v, i) => v.password === password).length > 0
+  );
 }

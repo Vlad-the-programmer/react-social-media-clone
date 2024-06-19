@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "../constants/routes";
 import Spinner from "../components/Spinner";
 
-type SuccessRedirectPageProps = { message: string };
+type SuccessRedirectPageProps = { message?: string };
 export default function SuccessRedirectPage({ message }: SuccessRedirectPageProps) {
   const styles: { [key: string]: React.CSSProperties } = {
     heading1: {
